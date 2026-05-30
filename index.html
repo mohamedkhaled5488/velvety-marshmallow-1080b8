@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">NetSymptom — Smart Network Diagnostic Engine | Why Is My Internet Slow?</title>
+<meta name="description" content="Free instant diagnosis: find out exactly why your internet feels slow even when your speed test shows 300 Mbps. Analyzes bufferbloat, ISP congestion, DNS, Wi-Fi interference in seconds.">
+<meta name="keywords" content="internet slow but speed test good, why is internet slow, bufferbloat fix, ISP congestion, DNS slow, internet feels slow, speed test paradox, fix slow internet, gaming lag high ping, netflix buffering fix, youtube buffering, zoom freezing fix">
+<meta name="robots" content="index, follow">
+<meta name="author" content="NetSymptom">
+<meta name="theme-color" content="#020617">
+<meta name="google-adsense-account" content="ca-pub-4634260205367551">
+<link rel="canonical" href="https://netsymptom.io/">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4634260205367551" crossorigin="anonymous"></script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234f46e5'/><polyline points='6,22 13,11 20,17 26,8' stroke='white' stroke-width='2.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
+<!-- Open Graph -->
+<meta property="og:title" content="NetSymptom — Smart Network Diagnostic Engine">
+<meta property="og:description" content="Find the real reason your internet feels slow despite fast speed test results. Free, instant, no signup required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://netsymptom.io/">
+<meta property="og:image" content="https://netsymptom.io/social-card.png">
+<meta property="og:site_name" content="NetSymptom">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NetSymptom — Why Is My Internet Slow?">
+<meta name="twitter:description" content="Free network diagnostic: discover why your internet feels slow despite good speed test results.">
+<meta name="twitter:image" content="https://netsymptom.io/social-card.png">
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: { slate: { 950: '#020617' } }
+      }
+    }
+  };
+</script>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://netsymptom.io/#app",
+      "name": "NetSymptom",
+      "url": "https://netsymptom.io/",
+      "description": "Smart Network Diagnostic Engine identifying the real cause of slow internet despite fast speed test results.",
+      "applicationCategory": "UtilityApplication",
+      "browserRequirements": "Requires JavaScript",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "featureList": ["Bufferbloat diagnosis","ISP peering bottleneck detection","DNS latency analysis","Wi-Fi interference detection","Gaming lag root cause analysis","Streaming buffer issue diagnosis"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://netsymptom.io/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my internet feel slow when speed test scores are incredibly high?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Speed tests measure maximum theoretical bandwidth between your device and a nearby server under ideal, unloaded conditions. Real-world performance depends on many additional factors: bufferbloat (excess latency caused by overflowing router buffers), ISP peering agreements (routing your traffic through congested intercontinental links to reach services like Netflix or YouTube), DNS resolution times (the lookup that must happen before any connection starts), packet loss (even 0.5% loss destroys streaming and gaming quality), and Wi-Fi interference from neighbouring networks. A 300 Mbps speed test result is meaningless if your router's buffers overflow under load or YouTube's servers are reached through a saturated peering gateway." }
+        },
+        {
+          "@type": "Question",
+          "name": "What exactly is DNS, and how does changing it improve loading speeds?",
+          "acceptedAnswer": { "@type": "Answer", "text": "DNS (Domain Name System) is the internet's phone book. Before your browser loads any website, it must resolve the domain name to an IP address. This lookup hits your ISP's DNS server by default. If that server is overloaded or geographically distant, every single page visit incurs an additional 50–200ms delay before any data flows. Switching to Cloudflare (1.1.1.1) or Google (8.8.8.8) reduces this to under 5ms, making pages feel dramatically faster to start loading even if raw download speed is unchanged." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an encrypted VPN actually make my streaming video faster?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, in specific circumstances. ISPs practice selective throttling — intentionally slowing traffic to Netflix, YouTube, or Twitch during peak hours. A VPN encrypts all traffic so your ISP cannot identify it as streaming video, preventing targeted throttling. However, VPNs add protocol overhead and route traffic through an extra server, typically reducing speeds 5–15%. If your ISP is not throttling, a VPN will slow things down. If throttling is occurring, a premium VPN can restore or even exceed normal speeds." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the official federal regulatory baseline for high-speed broadband?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The FCC updated its broadband definition in 2024 to a minimum of 100 Mbps download and 20 Mbps upload for a connection to qualify as high-speed broadband, up from the 25/3 Mbps threshold set in 2015. For households with multiple simultaneous users, 4K streaming, remote work, and online gaming, practical comfortable speeds require 500 Mbps to 1 Gbps download. Upload speeds are increasingly critical as video conferencing, cloud backup, and content creation have become standard household activities." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I log into my local router gateway to prioritize my device's bandwidth?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open a browser and type 192.168.1.1 or 192.168.0.1. If neither works, open Command Prompt (Windows) and run 'ipconfig' — look for 'Default Gateway'. Log in with admin credentials printed on the router label (commonly admin/admin or admin/password). Navigate to QoS (Quality of Service) or Bandwidth Control settings. Add your device's IP or MAC address and assign it highest priority. This guarantees your device gets bandwidth first during household congestion periods." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Programmatic URL Router — FIX 2B + 2C: auto-fires engine & mutates meta description -->
+<script>
+(function () {
+  var SLUG_MAP = {
+    'youtube-buffering':  {
+      val: 'video-buffering',
+      title: 'YouTube Buffering Diagnosis — NetSymptom',
+      desc:  'Find out exactly why YouTube buffers despite fast speed test results. Our free diagnostic identifies ISP peering throttling, Wi-Fi saturation, and DNS latency as root causes.'
+    },
+    'netflix-buffering':  {
+      val: 'video-buffering',
+      title: 'Netflix Buffering Fix — NetSymptom',
+      desc:  'Netflix buffering even on a 500 Mbps connection? NetSymptom diagnoses ISP peering bottlenecks, Wi-Fi interference, and DNS latency — the real causes behind streaming slowdowns.'
+    },
+    'gaming-lag':         {
+      val: 'gaming-lag',
+      title: 'Gaming Lag & High Ping Diagnosis — NetSymptom',
+      desc:  'Diagnose gaming lag and rubberbanding with our free tool. We analyse bufferbloat queue failure, Wi-Fi packet loss, and server routing deficits — the actual causes of in-game lag on fast connections.'
+    },
+    'high-ping':          {
+      val: 'gaming-lag',
+      title: 'High Ping Fix — NetSymptom',
+      desc:  'High ping despite fast internet? Our free diagnostic engine identifies bufferbloat, Wi-Fi packet interruption, and ISP routing deficits causing elevated latency in real time.'
+    },
+    'zoom-freezing':      {
+      val: 'voip-freeze',
+      title: 'Zoom & Teams Call Freeze Diagnosis — NetSymptom',
+      desc:  'Zoom or Teams calls freezing and dropping? NetSymptom diagnoses Wi-Fi packet loss, ISP gateway congestion, and background bandwidth hogging — the top causes of video call degradation.'
+    },
+    'slow-loading':       {
+      val: 'slow-load',
+      title: 'Slow Page Loading Fix — NetSymptom',
+      desc:  'Pages slow to start despite fast speeds? Our diagnostic identifies slow ISP DNS servers as the #1 culprit. Learn to switch to Cloudflare 1.1.1.1 and fix load times instantly.'
+    },
+    'stream-stutter':     {
+      val: 'stream-stutter',
+      title: 'Live Stream Stutter & Disconnect Fix — NetSymptom',
+      desc:  'Twitch or YouTube Live stream stuttering and dropping? NetSymptom diagnoses ISP upload throttling, encoder queue drops, and Wi-Fi upload instability — with step-by-step repair guides.'
+    }
+  };
+
+  window.addEventListener('DOMContentLoaded', function () {
+    var hash = window.location.hash;
+    if (!hash) return;
+    var m = hash.match(/^#diagnose\/(.+)$/);
+    if (!m) return;
+    var mapped = SLUG_MAP[m[1].toLowerCase()];
+    if (!mapped) return;
+
+    /* ── 2C FIX: mutate <title> AND <meta description> ── */
+    document.getElementById('page-title').textContent = mapped.title;
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', mapped.desc);
+    var ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', mapped.title);
+    var ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', mapped.desc);
+    var twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', mapped.title);
+    var twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute('content', mapped.desc);
+
+    /* ── Pre-select symptom dropdown ── */
+    var sel = document.getElementById('symptom-select');
+    if (sel) sel.value = mapped.val;
+
+    /* ── 2B FIX: auto-fire diagnostic engine on deep-link load ── */
+    setTimeout(function () {
+      var toolSection = document.getElementById('tool-section');
+      if (toolSection) toolSection.scrollIntoView({ behavior: 'smooth' });
+      /* Small extra delay to let the scroll settle before results render */
+      setTimeout(function () {
+        if (typeof runDiagnostic === 'function') runDiagnostic();
+      }, 600);
+    }, 400);
+  });
+}());
+</script>
+
+<style>
+  /* ── Scrollbar ─────────────────────────── */
+  ::-webkit-scrollbar{width:5px}
+  ::-webkit-scrollbar-track{background:#020617}
+  ::-webkit-scrollbar-thumb{background:#4f46e5;border-radius:3px}
+
+  /* ── Keyframes ─────────────────────────── */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes barGrow{from{width:0}to{width:var(--tw,0%)}}
+  @keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.04)}}
+  @keyframes dash{to{stroke-dashoffset:-24}}
+  @keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(79,70,229,.45)}70%{box-shadow:0 0 0 14px rgba(79,70,229,0)}100%{box-shadow:0 0 0 0 rgba(79,70,229,0)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes orb1{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-20px)}}
+  @keyframes orb2{0%,100%{transform:translate(0,0)}50%{transform:translate(-25px,15px)}}
+
+  /* ── Utility classes ────────────────────── */
+  .afu{animation:fadeUp .7s ease-out forwards;opacity:0}
+  .afi{animation:fadeIn .5s ease-out forwards;opacity:0}
+  .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}.d5{animation-delay:.5s}.d6{animation-delay:.6s}
+
+  .gradient-text{background:linear-gradient(135deg,#a5b4fc,#818cf8,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .gradient-text-warm{background:linear-gradient(135deg,#fbbf24,#f59e0b,#d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+  .glass{background:rgba(15,23,42,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+
+  .hover-lift{transition:transform .2s ease,box-shadow .2s ease}
+  .hover-lift:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(79,70,229,.18)}
+
+  .orb{position:absolute;border-radius:50%;filter:blur(72px);pointer-events:none;opacity:.35}
+
+  /* ── Range slider ────────────────────────── */
+  input[type=range]{-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer;width:100%}
+  input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,#4f46e5 var(--rp,0%),#1e293b var(--rp,0%))}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:#6366f1;border:2px solid #a5b4fc;box-shadow:0 0 10px rgba(99,102,241,.6);margin-top:-7px}
+  input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:#1e293b}
+  input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#6366f1;border:2px solid #a5b4fc}
+
+  /* ── Accordion ──────────────────────────── */
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .42s cubic-bezier(.4,0,.2,1)}
+  .acc-body.open{max-height:600px}
+  .acc-icon{transition:transform .3s ease}
+  .acc-icon.open{transform:rotate(180deg)}
+
+  /* ── Results section ────────────────────── */
+  #results-wrap{display:none}
+  #results-wrap.show{display:block;animation:fadeUp .6s ease-out forwards}
+
+  /* ── Progress bar ───────────────────────── */
+  .bar-inner{width:0;transition:width 0s;border-radius:4px}
+  .bar-inner.animate{animation:barGrow 1.4s cubic-bezier(.34,1.1,.64,1) forwards}
+
+  /* ── Modal ──────────────────────────────── */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(2,6,23,.88);backdrop-filter:blur(8px);z-index:60;align-items:center;justify-content:center;padding:1rem}
+  .modal-overlay.open{display:flex;animation:fadeIn .25s ease-out forwards}
+  .modal-box{max-height:88vh;overflow-y:auto;border-radius:1rem}
+  .modal-box::-webkit-scrollbar{width:4px}
+  .modal-box::-webkit-scrollbar-thumb{background:#4f46e5;border-radius:2px}
+
+  /* ── Network path SVG lines ─────────────── */
+  .net-dash{stroke-dasharray:6 4;animation:dash 1.8s linear infinite}
+
+  /* ── Sticky header ──────────────────────── */
+  #site-header{position:sticky;top:0;z-index:40;background:rgba(2,6,23,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(99,102,241,.09)}
+
+  /* ── Gradient animated bg ───────────────── */
+  .grad-bg{background:linear-gradient(135deg,#020617 0%,#0f172a 40%,#1e1b4b 70%,#020617 100%);background-size:300% 300%;animation:gradShift 12s ease infinite}
+
+  /* ── Select arrow override ──────────────── */
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236366f1' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;-webkit-appearance:none;appearance:none}
+
+  /* ── Fix checklist ──────────────────────── */
+  .fix-item{opacity:0;transform:translateX(-8px);transition:opacity .4s ease,transform .4s ease}
+  .fix-item.visible{opacity:1;transform:translateX(0)}
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased overflow-x-hidden">
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════ -->
+<header id="site-header">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2.5 group">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/30 group-hover:bg-indigo-500 transition-colors">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="2,14 7,6 11,10 16,3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="3" r="1.5" fill="white"/>
+        </svg>
+      </div>
+      <span class="font-semibold text-white text-sm tracking-tight">Net<span class="text-indigo-400">Symptom</span></span>
+    </a>
+
+    <!-- Nav -->
+    <nav class="hidden sm:flex items-center gap-5 text-xs text-slate-400 font-medium">
+      <a href="#tool-section" class="hover:text-white transition-colors">Diagnose</a>
+      <a href="#learn" class="hover:text-white transition-colors">Learn</a>
+      <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+      <a href="#about" class="hover:text-white transition-colors">About</a>
+    </nav>
+
+    <!-- CTA -->
+    <a href="#tool-section" class="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-3.5 py-2 rounded-lg transition-all shadow-md shadow-indigo-600/20 hover:shadow-indigo-500/30">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="white" stroke-width="1.5"/><polyline points="4,6.5 6,8.5 9.5,4.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Run Diagnosis
+    </a>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="relative grad-bg overflow-hidden pt-20 pb-28 px-4">
+  <!-- Background orbs -->
+  <div class="orb w-96 h-96 bg-indigo-600 top-[-80px] left-[-100px]" style="animation:orb1 10s ease-in-out infinite"></div>
+  <div class="orb w-80 h-80 bg-violet-700 bottom-[-60px] right-[-80px]" style="animation:orb2 13s ease-in-out infinite"></div>
+
+  <div class="relative max-w-3xl mx-auto text-center z-10">
+    <!-- Badge -->
+    <div class="afu inline-flex items-center gap-2 bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-medium px-3.5 py-1.5 rounded-full mb-6">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" style="animation:pulseRing 2s ease-out infinite"></span>
+      Free · No Signup · 100% Client-Side
+    </div>
+
+    <!-- Headline -->
+    <h1 class="afu d1 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-5">
+      Internet feels slow<br>
+      <span class="gradient-text">even though your speed<br>test looks fine?</span>
+    </h1>
+
+    <p class="afu d2 text-slate-400 text-lg sm:text-xl max-w-xl mx-auto mb-8 leading-relaxed">
+      NetSymptom pinpoints the <strong class="text-slate-200">real bottleneck</strong> in under 30 seconds — bufferbloat, ISP congestion, DNS lag, Wi-Fi interference, and more.
+    </p>
+
+    <div class="afu d3 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="#tool-section" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-7 py-3.5 rounded-xl text-base transition-all shadow-xl shadow-indigo-600/25 hover:shadow-indigo-500/35 hover-lift">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="white" stroke-width="1.6"/><path d="M6 9l2.5 2.5 4-5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Analyze My Internet
+      </a>
+      <a href="#learn" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm font-medium transition-colors px-4 py-3.5">
+        How it works
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <!-- Trust badges -->
+    <div class="afu d4 mt-10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500">
+      <span class="flex items-center gap-1.5">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1L8 4.5H12l-2.8 2.2 1 3.8L6.5 8.5 3.3 10.5l1-3.8L1.5 4.5H5z" fill="#10b981"/></svg>
+        Zero data collected
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="2" y="5" width="9" height="7" rx="1.5" stroke="#10b981" stroke-width="1.4"/><path d="M4.5 5V3.5a2 2 0 014 0V5" stroke="#10b981" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Runs entirely in your browser
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="#10b981" stroke-width="1.4"/><path d="M4 6.5l2 2 3.5-3.5" stroke="#10b981" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Deterministic weighted engine
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v11M1 6.5h11" stroke="#10b981" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Always free
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     3-STEP TOOL SECTION
+═══════════════════════════════════════════ -->
+<section id="tool-section" class="relative max-w-3xl mx-auto px-4 sm:px-6 -mt-10 pb-16">
+
+  <!-- Step indicator -->
+  <div class="flex items-center justify-center mb-8 gap-0">
+    <!-- Step 1 -->
+    <div class="flex flex-col items-center">
+      <div id="step-dot-1" class="w-9 h-9 rounded-full bg-indigo-600 border-2 border-indigo-400 flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-indigo-600/30 transition-all">1</div>
+      <span class="text-xs text-slate-500 mt-1.5 font-medium">Get Speed</span>
+    </div>
+    <div id="conn-1" class="h-px w-16 sm:w-24 bg-slate-800 mx-2 mt-[-18px] transition-all duration-700"></div>
+    <!-- Step 2 -->
+    <div class="flex flex-col items-center">
+      <div id="step-dot-2" class="w-9 h-9 rounded-full bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-xs font-bold text-slate-400 transition-all duration-500">2</div>
+      <span class="text-xs text-slate-500 mt-1.5 font-medium">Calibrate</span>
+    </div>
+    <div id="conn-2" class="h-px w-16 sm:w-24 bg-slate-800 mx-2 mt-[-18px] transition-all duration-700"></div>
+    <!-- Step 3 -->
+    <div class="flex flex-col items-center">
+      <div id="step-dot-3" class="w-9 h-9 rounded-full bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-xs font-bold text-slate-400 transition-all duration-500">3</div>
+      <span class="text-xs text-slate-500 mt-1.5 font-medium">Results</span>
+    </div>
+  </div>
+
+  <!-- ─── STEP 1: Speed Test Launcher ──────── -->
+  <div id="step1-card" class="glass rounded-2xl border border-slate-700/60 p-6 sm:p-8 mb-4 hover-lift">
+    <div class="flex items-start gap-4">
+      <div class="w-11 h-11 rounded-xl bg-indigo-950 border border-indigo-500/30 flex items-center justify-center shrink-0">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="8.5" stroke="#6366f1" stroke-width="1.5"/>
+          <path d="M10 5v5l3 3" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M6 2.5C4 3.8 2.5 5.8 2.5 10" stroke="#4f46e5" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-400 uppercase tracking-wider">Step 1</span>
+          <span class="text-xs bg-indigo-950/60 text-indigo-300 px-2 py-0.5 rounded-full border border-indigo-500/20">Recommended</span>
+        </div>
+        <h2 class="text-lg font-bold text-white mb-1">Get Your Real-World Speed Data</h2>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">Run an official speed test first. You'll enter those numbers into Step 2 — this is what makes our diagnosis accurate. <strong class="text-slate-300">Fast.com</strong> is powered by Netflix's global CDN and gives honest results.</p>
+        <a href="https://fast.com" target="_blank" rel="noopener noreferrer"
+           onclick="markStep1Complete()"
+           class="inline-flex items-center gap-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-all shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 group">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6.5" stroke="white" stroke-width="1.4"/>
+            <path d="M5 8l2.5 2.5L11 5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Launch Verified Speed Test (Fast.com)
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+            <path d="M2 10L10 2M10 2H5M10 2v5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <p class="text-xs text-slate-600 mt-2.5">Opens in a new tab. Returns here automatically. Note your Download speed, Upload speed, and Latency.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── STEP 2: Calibration Matrix ───────── -->
+  <div id="step2-card" class="glass rounded-2xl border border-slate-700/60 p-6 sm:p-8">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-11 h-11 rounded-xl bg-violet-950 border border-violet-500/30 flex items-center justify-center shrink-0">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="2.5" y="2.5" width="6" height="6" rx="1.5" stroke="#7c3aed" stroke-width="1.4"/>
+          <rect x="11.5" y="2.5" width="6" height="6" rx="1.5" stroke="#8b5cf6" stroke-width="1.4"/>
+          <rect x="2.5" y="11.5" width="6" height="6" rx="1.5" stroke="#8b5cf6" stroke-width="1.4"/>
+          <rect x="11.5" y="11.5" width="6" height="6" rx="1.5" stroke="#7c3aed" stroke-width="1.4"/>
+        </svg>
+      </div>
+      <div>
+        <span class="text-xs font-semibold text-violet-400 uppercase tracking-wider block">Step 2</span>
+        <h2 class="text-lg font-bold text-white">Calibration Matrix</h2>
+      </div>
+    </div>
+
+    <form id="diagnostic-form" onsubmit="return false;">
+
+      <!-- Symptom selector -->
+      <div class="mb-6">
+        <label class="flex items-center gap-2 text-sm font-semibold text-slate-200 mb-2.5">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#a5b4fc" stroke-width="1.4"/><path d="M7 4.5v3M7 9.5v.5" stroke="#a5b4fc" stroke-width="1.4" stroke-linecap="round"/></svg>
+          What's your primary symptom?
+        </label>
+        <select id="symptom-select" required
+          class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-xl px-4 py-3 pr-10 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all cursor-pointer">
+          <option value="" disabled selected>— Select your exact problem —</option>
+          <option value="video-buffering">📺  YouTube / Netflix buffers constantly despite fast speed</option>
+          <option value="gaming-lag">🎮  Severe lag / rubberbanding in online games</option>
+          <option value="voip-freeze">📹  Zoom / Teams calls freeze or drop unexpectedly</option>
+          <option value="slow-load">🌐  Websites slow to start loading but fast once connected</option>
+          <option value="stream-stutter">📡  Live video streams stutter or disconnect mid-session</option>
+        </select>
+      </div>
+
+      <!-- Download Speed -->
+      <div class="mb-6">
+        <label class="flex items-center justify-between mb-2.5">
+          <span class="flex items-center gap-2 text-sm font-semibold text-slate-200">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v9M3.5 7.5L7 11l3.5-3.5" stroke="#34d399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download Speed
+          </span>
+          <span class="text-sm font-bold text-emerald-400"><span id="dl-val">100</span> Mbps</span>
+        </label>
+        <input type="range" id="download-slider" min="1" max="1000" value="100"
+          class="w-full mb-2" oninput="syncSlider('download','dl',1,1000)" style="--rp:9%">
+        <input type="number" id="download-speed" min="1" max="10000" value="100" placeholder="e.g. 250"
+          class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:border-emerald-500/60 focus:ring-2 focus:ring-emerald-500/10 transition-all"
+          oninput="syncInput('download','dl',1,1000)">
+      </div>
+
+      <!-- Upload Speed -->
+      <div class="mb-6">
+        <label class="flex items-center justify-between mb-2.5">
+          <span class="flex items-center gap-2 text-sm font-semibold text-slate-200">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 11V2M3.5 5.5L7 2l3.5 3.5" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Upload Speed
+          </span>
+          <span class="text-sm font-bold text-blue-400"><span id="ul-val">20</span> Mbps</span>
+        </label>
+        <input type="range" id="upload-slider" min="1" max="500" value="20"
+          class="w-full mb-2" oninput="syncSlider('upload','ul',1,500)" style="--rp:3.8%">
+        <input type="number" id="upload-speed" min="1" max="5000" value="20" placeholder="e.g. 25"
+          class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:border-blue-500/60 focus:ring-2 focus:ring-blue-500/10 transition-all"
+          oninput="syncInput('upload','ul',1,500)">
+      </div>
+
+      <!-- Ping/Latency -->
+      <div class="mb-7">
+        <label class="flex items-center justify-between mb-2.5">
+          <span class="flex items-center gap-2 text-sm font-semibold text-slate-200">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#f87171" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="7" r="1.5" fill="#f87171"/></svg>
+            Latency / Ping
+          </span>
+          <span class="text-sm font-bold" id="ping-color-label"><span id="ping-val">30</span> ms</span>
+        </label>
+        <input type="range" id="ping-slider" min="1" max="500" value="30"
+          class="w-full mb-2" oninput="syncSlider('ping','ping',1,500)" style="--rp:5.8%">
+        <input type="number" id="ping-ms" min="1" max="9999" value="30" placeholder="e.g. 45"
+          class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-lg px-4 py-2.5 focus:outline-none focus:border-rose-500/60 focus:ring-2 focus:ring-rose-500/10 transition-all"
+          oninput="syncInput('ping','ping',1,500)">
+        <div class="flex justify-between text-xs text-slate-600 mt-1 px-1">
+          <span>Excellent &lt;20ms</span><span>Good &lt;50ms</span><span>Fair &lt;100ms</span><span>Poor 100ms+</span>
+        </div>
+      </div>
+
+      <!-- Error message -->
+      <div id="form-error" class="hidden mb-4 flex items-center gap-2 bg-rose-950/50 border border-rose-500/30 text-rose-400 text-sm px-4 py-3 rounded-xl">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="#f43f5e" stroke-width="1.4"/><path d="M7.5 4.5v4M7.5 10.5v.5" stroke="#f43f5e" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Please select a symptom before running the analysis.
+      </div>
+
+      <!-- Submit Button -->
+      <button type="button" id="analyze-btn" onclick="runDiagnostic()"
+        class="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold py-4 px-8 rounded-xl text-base transition-all shadow-2xl shadow-indigo-600/25 hover:shadow-indigo-500/35 hover-lift relative overflow-hidden group">
+        <span id="btn-spinner" class="hidden w-4 h-4 border-2 border-white/30 border-t-white rounded-full" style="animation:spin .7s linear infinite"></span>
+        <svg id="btn-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M3 9a6 6 0 1012 0A6 6 0 003 9z" stroke="white" stroke-width="1.6"/>
+          <path d="M9 6v3l2 2" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M14 2l2 2-2 2M14 4h-3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span id="btn-text">Execute Diagnostic Analysis</span>
+        <div class="absolute inset-0 bg-white/5 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
+      </button>
+    </form>
+  </div>
+
+  <!-- ─── STEP 3: Results Section ───────────── -->
+  <div id="results-wrap" class="mt-6">
+    <div class="glass rounded-2xl border border-slate-700/60 overflow-hidden">
+
+      <!-- Results header -->
+      <div class="bg-gradient-to-r from-indigo-950/80 to-violet-950/80 border-b border-slate-700/60 px-6 sm:px-8 py-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/30">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="white" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="9" r="3" stroke="white" stroke-width="1.4"/></svg>
+          </div>
+          <div>
+            <span class="text-xs text-indigo-400 font-semibold uppercase tracking-wider block">Step 3</span>
+            <h2 class="font-bold text-white text-base">Diagnostic Report</h2>
+          </div>
+        </div>
+        <div id="results-badge" class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-400"></div>
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-8">
+
+        <!-- ── Network Health Score ── -->
+        <div class="text-center">
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-4">Network Health Score</p>
+          <div class="relative inline-flex items-center justify-center">
+            <svg width="140" height="140" viewBox="0 0 140 140">
+              <circle cx="70" cy="70" r="58" fill="none" stroke="#1e293b" stroke-width="10"/>
+              <circle id="score-ring" cx="70" cy="70" r="58" fill="none" stroke="#6366f1" stroke-width="10"
+                stroke-linecap="round" stroke-dasharray="364.4" stroke-dashoffset="364.4"
+                transform="rotate(-90 70 70)" style="transition:stroke-dashoffset 1.6s cubic-bezier(.34,1.1,.64,1),stroke .5s"/>
+            </svg>
+            <div class="absolute text-center">
+              <div id="score-number" class="text-4xl font-extrabold text-white" style="font-variant-numeric:tabular-nums">--</div>
+              <div class="text-xs text-slate-500 font-medium">/ 100</div>
+            </div>
+          </div>
+          <p id="score-label" class="text-sm text-slate-400 mt-2 font-medium"></p>
+        </div>
+
+        <!-- ── Probability Bars ── -->
+        <div>
+          <h3 class="text-sm font-bold text-slate-200 mb-4 flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="8" width="3" height="5" rx="1" fill="#6366f1"/><rect x="5.5" y="5" width="3" height="8" rx="1" fill="#8b5cf6"/><rect x="10" y="2" width="3" height="11" rx="1" fill="#a78bfa"/></svg>
+            Probable Root Causes
+          </h3>
+          <div id="bars-container" class="space-y-4"></div>
+        </div>
+
+        <!-- ── Network Path Visualization ── -->
+        <div>
+          <h3 class="text-sm font-bold text-slate-200 mb-4 flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#6366f1" stroke-width="1.4"/><path d="M4.5 7h5M7 4.5v5" stroke="#818cf8" stroke-width="1.3" stroke-linecap="round"/></svg>
+            Network Path Bottleneck
+          </h3>
+          <div class="bg-slate-900/60 rounded-xl border border-slate-700/50 p-5">
+            <div id="network-path" class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0"></div>
+          </div>
+        </div>
+
+        <!-- ── Paradox Translator ── -->
+        <div class="bg-slate-900/60 rounded-xl border border-amber-500/20 p-5">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0 mt-0.5">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l6.5 11H1.5z" stroke="#f59e0b" stroke-width="1.4" stroke-linejoin="round"/><path d="M8 7v3M8 11.5v.5" stroke="#f59e0b" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-amber-400 text-sm mb-2">Network Paradox Translator</h3>
+              <p id="paradox-text" class="text-slate-400 text-sm leading-relaxed"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Fix Checklist ── -->
+        <div>
+          <h3 class="text-sm font-bold text-slate-200 mb-4 flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-7" stroke="#10b981" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Priority Fix Checklist
+          </h3>
+          <div id="fix-list" class="space-y-2.5"></div>
+        </div>
+
+        <!-- ── Accordion Walkthroughs ── -->
+        <div>
+          <h3 class="text-sm font-bold text-slate-200 mb-4 flex items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="1.4" rx=".7" fill="#818cf8"/><rect x="1" y="6.3" width="8" height="1.4" rx=".7" fill="#818cf8"/><rect x="1" y="9.6" width="10" height="1.4" rx=".7" fill="#818cf8"/></svg>
+            Step-by-Step Repair Guides
+          </h3>
+          <div id="walkthroughs" class="space-y-2"></div>
+        </div>
+
+        <!-- ── Affiliate Recommendation ── -->
+        <div id="affiliate-card" class="rounded-xl border border-indigo-500/25 bg-gradient-to-br from-indigo-950/60 to-violet-950/60 p-5">
+          <div class="flex items-start gap-4">
+            <div id="affiliate-icon" class="w-12 h-12 rounded-xl bg-indigo-900/60 border border-indigo-500/30 flex items-center justify-center shrink-0"></div>
+            <div class="flex-1 min-w-0">
+              <span class="text-xs text-indigo-400 font-semibold uppercase tracking-wider">Recommended Fix</span>
+              <h4 id="affiliate-title" class="font-bold text-white text-sm mt-0.5 mb-1"></h4>
+              <p id="affiliate-desc" class="text-slate-400 text-xs leading-relaxed mb-3"></p>
+              <a id="affiliate-link" href="#" target="_blank" rel="noopener noreferrer sponsored"
+                class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-all">
+                View Best Options
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 9.5L9.5 1.5M9.5 1.5H4M9.5 1.5v5.5" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reset button -->
+        <button onclick="resetDiagnostic()"
+          class="w-full flex items-center justify-center gap-2 border border-slate-700 hover:border-indigo-500/50 text-slate-400 hover:text-white text-sm font-medium py-3 rounded-xl transition-all">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7a5 5 0 109.9-1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 2.5v3.5H8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Run New Diagnosis
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END TOOL SECTION -->
+
+<!-- ═══════════════════════════════════════════
+     EDUCATIONAL KNOWLEDGE BASE
+═══════════════════════════════════════════ -->
+<section id="learn" class="max-w-4xl mx-auto px-4 sm:px-6 py-20">
+  <div class="text-center mb-12">
+    <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">Deep-Dive Knowledge Base</span>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-4">The Science Behind Slow Internet</h2>
+    <p class="text-slate-400 max-w-xl mx-auto">Understanding <em>why</em> your connection misbehaves is the first step to fixing it permanently. These are the four mechanisms responsible for the overwhelming majority of real-world slowdowns.</p>
+  </div>
+
+  <!-- Card 1: Bufferbloat -->
+  <article class="glass rounded-2xl border border-slate-700/60 p-7 sm:p-9 mb-6 hover-lift">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-10 h-10 rounded-xl bg-rose-950/70 border border-rose-500/30 flex items-center justify-center shrink-0">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="8" width="16" height="4" rx="2" stroke="#f87171" stroke-width="1.5"/><path d="M2 10h5l2-4 2 8 2-4h5" stroke="#f43f5e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-white">Bufferbloat: The Hidden Latency Killer</h3>
+        <span class="text-xs text-rose-400 font-medium">Primary cause of gaming lag &amp; call drops</span>
+      </div>
+    </div>
+    <div class="space-y-4 text-slate-400 text-sm leading-7">
+      <p>Bufferbloat is one of the most misunderstood networking phenomena of the modern internet era. To understand it, imagine your home router as a post office sorting room. When mail arrives faster than it can be processed and sent out, it piles up in a back room — the buffer. In networking, data packets behave identically. Modern routers are equipped with enormous packet buffers — sometimes hundreds of milliseconds deep — intended to prevent packet loss during temporary traffic surges.</p>
+      <p>The catastrophic side effect is that when your connection is under load — say, a family member downloads a large file — your router's outbound buffer fills completely. Every packet trying to leave your network must wait in that queue. A gaming packet that normally takes 8ms to reach a server might now wait 400ms in your own router's buffer before it even leaves your home. This is bufferbloat: massive latency caused not by the internet infrastructure, but by your own router's memory.</p>
+      <p>The cruel irony of bufferbloat is that it is <strong class="text-slate-200">completely invisible to speed tests</strong>. A speed test downloads a large file using your maximum bandwidth — it fills the buffer intentionally and measures throughput. The test passes with flying colours. Your ping looks fine because the test pings a nearby server before the buffer is loaded. But the moment real mixed traffic flows — streaming while browsing while someone else downloads — latency explodes.</p>
+      <p>The engineering solution is <strong class="text-slate-200">Active Queue Management (AQM)</strong>, specifically algorithms like <strong class="text-slate-200">FQ-CoDel</strong> (Flow Queuing Controlled Delay) or <strong class="text-slate-200">CAKE</strong>. These algorithms intelligently drop or delay packets before the buffer fills completely, keeping latency consistently low even under heavy load. Consumer-grade routers rarely implement these by default. OpenWRT-based routers with SQM (Smart Queue Management) enabled solve this problem elegantly. DD-WRT and commercial routers from Netgear's Nighthawk line also offer QoS settings that partially address this.</p>
+      <p>You can test for bufferbloat yourself at <strong class="text-slate-200">waveform.com/tools/bufferbloat</strong>. A grade of A or B means your router handles queuing well. A grade of D or F means bufferbloat is almost certainly causing your real-world slowdowns regardless of what your speed test shows.</p>
+    </div>
+  </article>
+
+  <!-- Card 2: ISP Peering -->
+  <article class="glass rounded-2xl border border-slate-700/60 p-7 sm:p-9 mb-6 hover-lift">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-10 h-10 rounded-xl bg-amber-950/70 border border-amber-500/30 flex items-center justify-center shrink-0">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="5" cy="10" r="3" stroke="#f59e0b" stroke-width="1.4"/><circle cx="15" cy="10" r="3" stroke="#fbbf24" stroke-width="1.4"/><path d="M8 10h4" stroke="#f59e0b" stroke-width="1.4" stroke-linecap="round"/><path d="M2 5c0 0 3-3 8-3s8 3 8 3" stroke="#d97706" stroke-width="1.2" stroke-linecap="round"/><path d="M2 15c0 0 3 3 8 3s8-3 8-3" stroke="#d97706" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-white">ISP Peering Agreements &amp; Selective Throttling</h3>
+        <span class="text-xs text-amber-400 font-medium">Why Netflix buffers at 7pm even on 500 Mbps</span>
+      </div>
+    </div>
+    <div class="space-y-4 text-slate-400 text-sm leading-7">
+      <p>The internet is not a single unified network. It is a collection of thousands of independent networks — called Autonomous Systems — operated by internet service providers, content delivery networks, universities, and corporations. These networks interconnect at physical facilities called <strong class="text-slate-200">Internet Exchange Points (IXPs)</strong>. The agreements governing how traffic flows between these networks are called <strong class="text-slate-200">peering agreements</strong>, and they have profound effects on your everyday internet experience.</p>
+      <p>When you load YouTube, your data travels: from Google's servers → through Google's network → to a peering point → through your ISP's backbone → to your home. Each of those handoffs is governed by a commercial agreement. ISPs that have paid for or negotiated strong peering with Google will deliver YouTube at full speed. ISPs with weak or distant peering arrangements route that traffic through congested intercontinental links — and you experience buffering even on a gigabit connection.</p>
+      <p>This is why you might have 500 Mbps service and still see YouTube buffer at 7pm on weeknights. It is not your home network. It is the link between your ISP and Google's content delivery infrastructure. A speed test to a nearby server — often hosted by the ISP itself — shows 500 Mbps because that path is uncontested. The path to YouTube traverses different, congested infrastructure.</p>
+      <p>Beyond peering, many ISPs practice <strong class="text-slate-200">deep packet inspection (DPI) throttling</strong> — identifying traffic types by their network signature and artificially limiting bandwidth to specific services. Netflix, Twitch, and BitTorrent have all been confirmed targets of ISP throttling in published research and regulatory proceedings. The FCC's 2015 Open Internet Order prohibited this, but regulatory enforcement has varied significantly across administrations.</p>
+      <p>The most reliable way to detect ISP throttling is to run a speed test to a content-specific server, then run the same test through a commercial VPN. If speeds increase dramatically through the VPN, throttling is almost certainly occurring. Tools like the M-Lab NDT test can also reveal throttling patterns across time-of-day measurements.</p>
+    </div>
+  </article>
+
+  <!-- Card 3: DNS -->
+  <article class="glass rounded-2xl border border-slate-700/60 p-7 sm:p-9 mb-6 hover-lift">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-10 h-10 rounded-xl bg-indigo-950/70 border border-indigo-500/30 flex items-center justify-center shrink-0">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="10" rx="2" stroke="#818cf8" stroke-width="1.4"/><path d="M6 9h8M6 12h5" stroke="#6366f1" stroke-width="1.3" stroke-linecap="round"/><circle cx="15" cy="6" r="1.5" fill="#818cf8"/></svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-white">DNS Resolution: The Hidden Pre-Loading Tax</h3>
+        <span class="text-xs text-indigo-400 font-medium">Why fast connections still have slow page starts</span>
+      </div>
+    </div>
+    <div class="space-y-4 text-slate-400 text-sm leading-7">
+      <p>Every time you type a web address or click a link, your device must first resolve the domain name to an IP address before a single byte of actual content can flow. This is DNS — the Domain Name System — and it is the internet's global directory service, operating as a hierarchical distributed database spanning millions of servers worldwide. The speed of this lookup is entirely separate from your connection bandwidth and is invisible to speed tests.</p>
+      <p>By default, DNS queries go to your ISP's resolver. These resolvers are often poorly maintained, geographically distant from you, under-resourced during peak hours, and slow to propagate updates from authoritative name servers. A typical ISP DNS lookup takes 40–150ms. Cloudflare's 1.1.1.1 — the world's fastest public DNS resolver according to independent benchmarks — returns results in 2–14ms. That 100ms difference happens on every single page load, every image, every JavaScript file, every API call.</p>
+      <p>Modern web pages make dozens to hundreds of DNS lookups per page load. A news site loading 80 resources from 20 different domains will trigger up to 20 unique DNS lookups. At 100ms per lookup (ISP) versus 5ms per lookup (Cloudflare), the difference is 1,900ms — nearly two full seconds — added to every page's load time, invisible to speed tests, completely fixable in under five minutes.</p>
+      <p>Beyond raw speed, DNS also affects privacy. ISP DNS resolvers log all your queries by default, creating a complete browsing history tied to your account. Cloudflare's 1.1.1.1 and Quad9 (9.9.9.9) explicitly log no identifying query data. DNS-over-HTTPS (DoH) further encrypts these queries so even your ISP cannot intercept them in transit. Chrome, Firefox, and Edge all support DoH natively in settings.</p>
+      <p>For technically oriented users, running a local DNS resolver with prefetching and caching — such as Pi-hole on a Raspberry Pi or NextDNS — can reduce DNS lookup times to near-zero for frequently visited domains, as the resolver caches results locally and answers from RAM rather than querying remote servers at all.</p>
+    </div>
+  </article>
+
+  <!-- Card 4: Packet Loss & Bandwidth Pipeline -->
+  <article class="glass rounded-2xl border border-slate-700/60 p-7 sm:p-9 hover-lift">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-10 h-10 rounded-xl bg-emerald-950/70 border border-emerald-500/30 flex items-center justify-center shrink-0">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 10h16" stroke="#34d399" stroke-width="1.6" stroke-linecap="round"/><circle cx="6" cy="10" r="2" fill="#10b981"/><circle cx="10" cy="10" r="2" fill="#34d399" opacity=".4"/><circle cx="14" cy="10" r="2" fill="#10b981"/><path d="M10 5v2M10 13v2" stroke="#6ee7b7" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-white">Packet Loss, Physical Transit &amp; the Bandwidth Pipeline</h3>
+        <span class="text-xs text-emerald-400 font-medium">Why raw Mbps is not the whole story</span>
+      </div>
+    </div>
+    <div class="space-y-4 text-slate-400 text-sm leading-7">
+      <p>Bandwidth — measured in Megabits per second — describes the theoretical maximum volume of data your connection can carry, like the diameter of a pipe. But the actual performance of your internet depends on three distinct properties that bandwidth alone cannot capture: <strong class="text-slate-200">latency</strong> (how fast each individual packet travels), <strong class="text-slate-200">jitter</strong> (how inconsistently packets arrive), and <strong class="text-slate-200">packet loss</strong> (what percentage of packets disappear entirely). A 1 Gbps connection with 5% packet loss performs catastrophically worse than a 100 Mbps connection with 0% loss for most real-world applications.</p>
+      <p>TCP — the protocol underlying most internet traffic — was designed to handle packet loss gracefully by retransmitting lost data. But retransmission takes time. When a packet is lost, TCP waits for a timeout period, then retransmits. During this wait, your video pauses, your game stutters, your file download stalls. Even 1% packet loss reduces TCP throughput dramatically and causes visible buffering in adaptive streaming video. Real-time protocols like the ones used in gaming and video calls cannot retransmit at all — lost packets mean visible lag or frozen frames.</p>
+      <p>Packet loss on your Wi-Fi connection — the most common source — is caused by signal interference, distance from the router, physical obstructions, and competing networks on the same channel. The 2.4GHz band, used by most older Wi-Fi devices, is shared with microwave ovens, Bluetooth devices, baby monitors, and dozens of neighbouring networks. Switching to 5GHz dramatically reduces interference-related packet loss, at the cost of reduced range. Wi-Fi 6 and Wi-Fi 6E introduce OFDMA multi-user access and BSS colouring to further reduce interference in dense environments.</p>
+      <p>Beyond your home, packet loss occurs at ISP interconnects under congestion, at international undersea cable links, and at content server infrastructure during traffic surges. Tools like <strong class="text-slate-200">MTR (My Traceroute)</strong> can trace the exact path your packets take and identify which network hop is causing loss. Most operating systems include a variant: run <code class="bg-slate-900 px-1.5 py-0.5 rounded text-indigo-300 text-xs">mtr google.com</code> on Linux/Mac or <code class="bg-slate-900 px-1.5 py-0.5 rounded text-indigo-300 text-xs">winmtr.exe</code> on Windows to see a real-time map of where your packets are being delayed or dropped.</p>
+    </div>
+  </article>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FAQ ACCORDION
+═══════════════════════════════════════════ -->
+<section id="faq" class="max-w-3xl mx-auto px-4 sm:px-6 pb-20">
+  <div class="text-center mb-10">
+    <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">Common Questions</span>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 mb-3">Frequently Asked Questions</h2>
+    <p class="text-slate-400 text-sm">Everything you need to know about diagnosing and fixing internet performance issues.</p>
+  </div>
+
+  <div class="space-y-2" id="faq-list">
+
+    <!-- FAQ 1 -->
+    <div class="glass rounded-xl border border-slate-700/60 overflow-hidden">
+      <button class="acc-toggle w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-800/30 transition-colors" onclick="toggleAcc(this)">
+        <span class="text-sm font-semibold text-slate-100">Why does my internet feel slow when speed test scores are incredibly high?</span>
+        <svg class="acc-icon w-4 h-4 text-indigo-400 shrink-0" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="px-6 pb-6 text-slate-400 text-sm leading-7 space-y-3 border-t border-slate-700/40 pt-4">
+          <p>Speed tests measure the maximum theoretical bandwidth between your device and a nearby, often ISP-owned server, under ideal unloaded conditions. They are not measuring the full journey your data takes to reach Netflix, YouTube, Zoom, or Steam servers. Several factors cause the paradox:</p>
+          <ul class="space-y-2 ml-4">
+            <li><strong class="text-slate-200">Bufferbloat:</strong> Your router's buffers fill under load, causing latency to spike from 8ms to 400ms or more — invisible to throughput tests.</li>
+            <li><strong class="text-slate-200">ISP Peering Congestion:</strong> The path from your ISP to a specific content provider may be congested even when your access line is clear.</li>
+            <li><strong class="text-slate-200">DNS Latency:</strong> Slow domain lookups add 100-200ms before any content loads, on every page, every resource.</li>
+            <li><strong class="text-slate-200">Packet Loss:</strong> Even 0.5% packet loss from Wi-Fi interference causes TCP retransmissions that dramatically reduce effective throughput for streaming and real-time applications.</li>
+            <li><strong class="text-slate-200">Server-Side Limitations:</strong> The content server itself may be throttling connections or geographically distant.</li>
+          </ul>
+          <p>The speed test passes because none of these issues affect a single large-file download to a nearby server. But all of them affect your everyday browsing, streaming, and gaming experience continuously.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="glass rounded-xl border border-slate-700/60 overflow-hidden">
+      <button class="acc-toggle w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-800/30 transition-colors" onclick="toggleAcc(this)">
+        <span class="text-sm font-semibold text-slate-100">What exactly is DNS, and how does changing it improve loading speeds?</span>
+        <svg class="acc-icon w-4 h-4 text-indigo-400 shrink-0" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="px-6 pb-6 text-slate-400 text-sm leading-7 space-y-3 border-t border-slate-700/40 pt-4">
+          <p>DNS — the Domain Name System — is the internet's phonebook. When you type "google.com" your browser cannot use that name directly; it needs the IP address (like 142.250.80.46). A DNS query is sent to a name server which looks up and returns that IP. Only then can your browser open a connection and start loading content.</p>
+          <p>This lookup must complete before any data flows. If your ISP's DNS server takes 120ms to respond (common on overloaded ISP infrastructure), that 120ms delay is added to every single resource your browser loads — every image, every script, every font, every API call.</p>
+          <p><strong class="text-slate-200">How to change your DNS:</strong></p>
+          <ul class="space-y-1.5 ml-4">
+            <li><strong class="text-slate-200">Cloudflare 1.1.1.1</strong> — Fastest globally, privacy-focused, free. Secondary: 1.0.0.1</li>
+            <li><strong class="text-slate-200">Google 8.8.8.8</strong> — Reliable, widely supported. Secondary: 8.8.4.4</li>
+            <li><strong class="text-slate-200">Quad9 9.9.9.9</strong> — Blocks malicious domains, privacy-respecting. Secondary: 149.112.112.112</li>
+          </ul>
+          <p>Change DNS in your router's admin panel to apply it to all devices simultaneously. Or change it per-device in Network adapter settings. The improvement is immediate — no restart required.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="glass rounded-xl border border-slate-700/60 overflow-hidden">
+      <button class="acc-toggle w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-800/30 transition-colors" onclick="toggleAcc(this)">
+        <span class="text-sm font-semibold text-slate-100">Can an encrypted VPN network actually make my streaming video speed faster?</span>
+        <svg class="acc-icon w-4 h-4 text-indigo-400 shrink-0" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="px-6 pb-6 text-slate-400 text-sm leading-7 space-y-3 border-t border-slate-700/40 pt-4">
+          <p>Yes — but only in a specific scenario. The condition is ISP throttling. Many ISPs use deep packet inspection to identify Netflix, YouTube, or Twitch traffic and deliberately reduce its bandwidth allowance, particularly during peak evening hours. A VPN encrypts all your traffic into an undistinguishable tunnel, making DPI-based throttling impossible for your ISP to apply.</p>
+          <p><strong class="text-slate-200">When a VPN helps streaming speeds:</strong> If your ISP is actively throttling video streaming services. Independent research has confirmed this practice with major US ISPs including Comcast, AT&amp;T, T-Mobile, and Verizon in published studies.</p>
+          <p><strong class="text-slate-200">When a VPN hurts streaming speeds:</strong> If your ISP is not throttling, a VPN routes traffic through an extra server, adds encryption overhead, and may route data over a less optimal path — typically reducing speeds by 5–20% depending on the VPN provider's infrastructure quality.</p>
+          <p><strong class="text-slate-200">How to test:</strong> Run a speed test to fast.com without VPN, then with VPN active (connected to a nearby server). If VPN speeds exceed non-VPN speeds by more than 10%, throttling is likely occurring.</p>
+          <p>Premium VPN services with dedicated high-bandwidth infrastructure — Mullvad, ProtonVPN, ExpressVPN — perform best for streaming. Free VPNs are too congested to improve streaming speeds reliably.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="glass rounded-xl border border-slate-700/60 overflow-hidden">
+      <button class="acc-toggle w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-800/30 transition-colors" onclick="toggleAcc(this)">
+        <span class="text-sm font-semibold text-slate-100">What is the official federal regulatory baseline for high-speed broadband?</span>
+        <svg class="acc-icon w-4 h-4 text-indigo-400 shrink-0" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="px-6 pb-6 text-slate-400 text-sm leading-7 space-y-3 border-t border-slate-700/40 pt-4">
+          <p>The <strong class="text-slate-200">FCC (Federal Communications Commission)</strong> updated its broadband benchmark in March 2024 to <strong class="text-slate-200">100 Mbps download / 20 Mbps upload</strong> as the minimum threshold for a connection to qualify as "high-speed broadband." This replaced the prior 25/3 Mbps standard established in 2015, which had become woefully inadequate for modern multi-device households.</p>
+          <p>The FCC's stated long-term goal is <strong class="text-slate-200">1 Gbps download / 500 Mbps upload</strong> as the target benchmark for future infrastructure investment under the $42.5 billion BEAD (Broadband Equity, Access, and Deployment) program funded by the Infrastructure Investment and Jobs Act.</p>
+          <p><strong class="text-slate-200">What these numbers mean in practice:</strong></p>
+          <ul class="space-y-1.5 ml-4">
+            <li>100 Mbps download supports 4K streaming on 2-3 devices simultaneously.</li>
+            <li>20 Mbps upload enables a single 4K video call or multi-stream upload.</li>
+            <li>For 4+ person households with active gaming, cloud work, and streaming, 500 Mbps+ download is the practical comfort zone.</li>
+            <li>Symmetrical gigabit (1000/1000) is increasingly available via FTTH fiber providers and is the recommended standard for power users and home office setups.</li>
+          </ul>
+          <p>If your ISP advertises speeds that meet these thresholds but your real-world experience is consistently poor, the issue is almost certainly one of the factors NetSymptom diagnoses — not your plan tier.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 5 -->
+    <div class="glass rounded-xl border border-slate-700/60 overflow-hidden">
+      <button class="acc-toggle w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-800/30 transition-colors" onclick="toggleAcc(this)">
+        <span class="text-sm font-semibold text-slate-100">How do I log into my local router gateway to prioritize my device's bandwidth?</span>
+        <svg class="acc-icon w-4 h-4 text-indigo-400 shrink-0" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="px-6 pb-6 text-slate-400 text-sm leading-7 space-y-3 border-t border-slate-700/40 pt-4">
+          <p>Accessing your router's admin panel is the most direct way to control how bandwidth is distributed across your home network. Here is the complete process:</p>
+          <ol class="space-y-2.5 ml-4 list-decimal">
+            <li><strong class="text-slate-200">Find your router's IP:</strong> Windows — open Command Prompt, type <code class="bg-slate-900 px-1.5 py-0.5 rounded text-indigo-300 text-xs">ipconfig</code>, look for "Default Gateway." Mac — open Terminal, type <code class="bg-slate-900 px-1.5 py-0.5 rounded text-indigo-300 text-xs">netstat -nr | grep default</code>. Most common addresses: 192.168.1.1, 192.168.0.1, 192.168.2.1, or 10.0.0.1.</li>
+            <li><strong class="text-slate-200">Open admin panel:</strong> Type the IP address directly into your browser's address bar. You'll see a login screen.</li>
+            <li><strong class="text-slate-200">Login credentials:</strong> Check the label on the bottom or back of your router — credentials are printed there. Common defaults: admin/admin, admin/password, admin/1234. If these were changed and forgotten, a factory reset restores defaults (hold reset button 10 seconds).</li>
+            <li><strong class="text-slate-200">Find QoS settings:</strong> Look under Advanced, Wireless, or Traffic Management. Labels vary by manufacturer: "QoS," "Bandwidth Control," "Traffic Priority," "Device Priority."</li>
+            <li><strong class="text-slate-200">Prioritize your device:</strong> Enter your device's IP or MAC address (found in your device's network settings) and set its priority to Highest. This ensures gaming or work traffic gets bandwidth first when the network is contested.</li>
+          </ol>
+          <p>If your router does not offer QoS controls, upgrading to a current-generation Wi-Fi 6 router with full QoS support is the most impactful single hardware upgrade for households with multiple active users.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 6 -->
+    <div class="glass rounded-xl border border-slate-700/60 overflow-hidden">
+      <button class="acc-toggle w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-slate-800/30 transition-colors" onclick="toggleAcc(this)">
+        <span class="text-sm font-semibold text-slate-100">What is the difference between 2.4GHz and 5GHz Wi-Fi, and which should I use?</span>
+        <svg class="acc-icon w-4 h-4 text-indigo-400 shrink-0" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="acc-body">
+        <div class="px-6 pb-6 text-slate-400 text-sm leading-7 space-y-3 border-t border-slate-700/40 pt-4">
+          <p>The two Wi-Fi frequency bands have fundamentally different characteristics that make each suitable for different situations:</p>
+          <p><strong class="text-slate-200">2.4GHz:</strong> Longer range, better wall penetration, much more congested (shared with microwaves, Bluetooth, baby monitors, and all neighbouring networks that also default to 2.4GHz). Maximum practical speeds of 150-300 Mbps. More susceptible to interference-induced packet loss.</p>
+          <p><strong class="text-slate-200">5GHz:</strong> Shorter range, less wall penetration, far less congested (more available channels, fewer competing devices), maximum practical speeds of 600 Mbps to 2.4 Gbps depending on Wi-Fi generation. Dramatically lower interference and packet loss when in range.</p>
+          <p><strong class="text-slate-200">6GHz (Wi-Fi 6E):</strong> Available only on Wi-Fi 6E capable routers and devices. Nearly zero congestion, highest speeds, shortest range. Ideal for devices within the same room or adjacent rooms.</p>
+          <p><strong class="text-slate-200">Recommendation:</strong> For gaming, video calls, and streaming — always use 5GHz when within range (typically within 10 metres with normal walls). Use 2.4GHz only for IoT devices, smart home sensors, and devices far from the router where speed is less critical. Modern dual-band routers can broadcast both simultaneously; most recent devices will auto-select the better band.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT SECTION
+═══════════════════════════════════════════ -->
+<section id="about" class="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
+  <div class="glass rounded-2xl border border-slate-700/60 p-8 sm:p-10">
+    <div class="grid sm:grid-cols-2 gap-10">
+      <!-- About text -->
+      <div>
+        <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest block mb-3">About NetSymptom</span>
+        <h2 class="text-2xl font-extrabold text-white mb-4">Bridging the Gap Between Metrics and Experience</h2>
+        <p class="text-slate-400 text-sm leading-7 mb-4">NetSymptom was built out of frustration. After years of watching technically literate people get told "your speed test looks fine" by ISP support agents while their Netflix buffered and their Zoom calls dropped, we decided to build the tool we wished existed.</p>
+        <p class="text-slate-400 text-sm leading-7 mb-4">The diagnostic engine is a deterministic, weighted rule matrix developed from published networking research, ISP performance studies, and real-world troubleshooting patterns. It runs entirely in your browser — no data leaves your device, no account is required, no server processes your inputs.</p>
+        <p class="text-slate-400 text-sm leading-7">Our goal is simple: transform opaque network metrics into clear, actionable explanations that any user can understand and act on immediately.</p>
+      </div>
+      <!-- Contact / Bug Report Form -->
+      <div>
+        <span class="text-xs font-semibold text-slate-500 uppercase tracking-widest block mb-3">Feedback &amp; Bug Reports</span>
+        <form onsubmit="submitFeedback(event)" class="space-y-3">
+          <div>
+            <label class="text-xs text-slate-400 font-medium block mb-1.5">Your Name (optional)</label>
+            <input type="text" placeholder="Jane Smith"
+              class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-lg px-3.5 py-2.5 focus:outline-none focus:border-indigo-500/60 focus:ring-2 focus:ring-indigo-500/10 transition-all placeholder-slate-600">
+          </div>
+          <div>
+            <label class="text-xs text-slate-400 font-medium block mb-1.5">Email (optional, for follow-up)</label>
+            <input type="email" placeholder="jane@example.com"
+              class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-lg px-3.5 py-2.5 focus:outline-none focus:border-indigo-500/60 focus:ring-2 focus:ring-indigo-500/10 transition-all placeholder-slate-600">
+          </div>
+          <div>
+            <label class="text-xs text-slate-400 font-medium block mb-1.5">Message or Bug Description</label>
+            <textarea rows="4" placeholder="Describe the issue or leave your feedback..."
+              class="w-full bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-lg px-3.5 py-2.5 focus:outline-none focus:border-indigo-500/60 focus:ring-2 focus:ring-indigo-500/10 transition-all resize-none placeholder-slate-600"></textarea>
+          </div>
+          <button type="submit"
+            class="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm py-2.5 rounded-lg transition-all">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 6-12 6V8.5l8-1.5-8-1.5z" fill="white"/></svg>
+            Send Feedback
+          </button>
+          <p id="feedback-thanks" class="hidden text-emerald-400 text-xs text-center font-medium pt-1">Thank you! Your feedback has been noted locally.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="border-t border-slate-800/60 bg-slate-950/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+    <div class="grid sm:grid-cols-3 gap-8 mb-8">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><polyline points="1,11 5,5 8.5,8 13,2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="font-semibold text-white text-sm">Net<span class="text-indigo-400">Symptom</span></span>
+        </div>
+        <p class="text-slate-500 text-xs leading-6">Smart network diagnostic engine. Runs 100% locally in your browser. No data collection. No accounts.</p>
+      </div>
+      <!-- Links -->
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Diagnose</h4>
+        <ul class="space-y-2 text-xs text-slate-500">
+          <li><a href="#diagnose/youtube-buffering" class="hover:text-slate-300 transition-colors">YouTube / Netflix Buffering</a></li>
+          <li><a href="#diagnose/gaming-lag" class="hover:text-slate-300 transition-colors">Gaming Lag &amp; High Ping</a></li>
+          <li><a href="#diagnose/zoom-freezing" class="hover:text-slate-300 transition-colors">Zoom / Teams Freezing</a></li>
+          <li><a href="#diagnose/slow-loading" class="hover:text-slate-300 transition-colors">Slow Page Loading</a></li>
+          <li><a href="#diagnose/stream-stutter" class="hover:text-slate-300 transition-colors">Live Stream Stuttering</a></li>
+        </ul>
+      </div>
+      <!-- Legal -->
+      <div>
+        <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Legal &amp; Info</h4>
+        <ul class="space-y-2 text-xs text-slate-500">
+          <li><button onclick="openModal('privacy-modal')" class="hover:text-slate-300 transition-colors text-left">Privacy Policy</button></li>
+          <li><button onclick="openModal('terms-modal')" class="hover:text-slate-300 transition-colors text-left">Terms of Service</button></li>
+          <li><a href="#about" class="hover:text-slate-300 transition-colors">About &amp; Contact</a></li>
+          <li><a href="#faq" class="hover:text-slate-300 transition-colors">FAQ</a></li>
+          <li><a href="#learn" class="hover:text-slate-300 transition-colors">Knowledge Base</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-800/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-slate-600">© 2025 NetSymptom. All diagnostic results are probabilistic estimates for educational purposes only.</p>
+      <div class="flex items-center gap-4 text-xs text-slate-600">
+        <button onclick="openModal('privacy-modal')" class="hover:text-slate-400 transition-colors">Privacy</button>
+        <button onclick="openModal('terms-modal')" class="hover:text-slate-400 transition-colors">Terms</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     PRIVACY POLICY MODAL
+═══════════════════════════════════════════ -->
+<div id="privacy-modal" class="modal-overlay" onclick="closeModalOutside(event,'privacy-modal')">
+  <div class="modal-box glass border border-slate-700/60 w-full max-w-2xl rounded-2xl">
+    <div class="sticky top-0 glass border-b border-slate-700/60 px-6 py-4 flex items-center justify-between">
+      <h2 class="font-bold text-white text-base">Privacy Policy</h2>
+      <button onclick="closeModal('privacy-modal')" class="w-8 h-8 rounded-lg border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-all">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="p-6 space-y-5 text-sm text-slate-400 leading-7">
+      <p class="text-xs text-slate-500 font-medium">Last updated: May 2025</p>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">1. Overview and Commitment</h3>
+        <p>NetSymptom ("we," "our," "the application") is committed to the absolute protection of user privacy. This Privacy Policy describes how the NetSymptom web application handles information in connection with your use of our service at netsymptom.io. We have architected this application with privacy as a foundational requirement, not an afterthought.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">2. Client-Side Processing — No Server Data Collection</h3>
+        <p>NetSymptom operates as a purely client-side application. Every calculation, diagnostic analysis, and result generation occurs exclusively within your web browser's local runtime environment (JavaScript engine). Your network diagnostic inputs — including download speed, upload speed, latency measurements, and symptom selections — are processed entirely in your device's memory and are never transmitted to any external server, database, or third-party analytics platform operated by NetSymptom.</p>
+        <p class="mt-2">We do not operate backend servers. We do not store diagnostic sessions. We do not log user inputs. When you close the browser tab, your data ceases to exist anywhere.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">3. Cookies and Local Storage</h3>
+        <p>NetSymptom does not set first-party cookies for tracking or identification purposes. The application may store minimal interface preference data (such as form field states) in your browser's sessionStorage, which is automatically cleared when your browser session ends. No persistent identifiers are created or stored.</p>
+        <p class="mt-2">If advertising is served on this page via Google AdSense or similar third-party advertising networks, those providers may set their own cookies in accordance with their respective privacy policies. These cookies are controlled entirely by those third parties and are subject to their own data policies. You may opt out of personalized advertising through Google's Ad Settings at adssettings.google.com.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">4. Third-Party Services</h3>
+        <p>NetSymptom links to Fast.com (operated by Netflix) for speed testing purposes. Fast.com is an independent service subject to Netflix's privacy policy. Clicking the Fast.com link opens a new browser tab and is entirely optional. NetSymptom does not receive or process the results of your Fast.com test — you enter those numbers manually into our form.</p>
+        <p class="mt-2">Affiliate recommendation links may appear in diagnostic results. These links may earn NetSymptom a referral commission at no cost to you. Clicking affiliate links connects you to third-party retailer websites (Amazon, etc.) subject to their own privacy policies.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">5. Analytics</h3>
+        <p>NetSymptom may use privacy-respecting analytics services (such as Cloudflare Web Analytics or Plausible Analytics) that collect only aggregate, anonymous page view data — total visits, general geographic region (country-level only), and referring domain. These services are explicitly configured to collect no personal identifiers, no IP addresses, no cross-site tracking data, and no fingerprinting information. No cookies are used for analytics.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">6. Children's Privacy</h3>
+        <p>NetSymptom does not knowingly collect any information from individuals under the age of 13. The service is intended for general audiences and does not target children.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">7. Changes to This Policy</h3>
+        <p>We may update this Privacy Policy periodically. Material changes will be noted with an updated date at the top of this document. Continued use of NetSymptom following any updates constitutes acceptance of the revised policy.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">8. Contact</h3>
+        <p>For privacy-related questions, use the feedback form in the About section of this page. We will respond to inquiries within 14 business days.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TERMS OF SERVICE MODAL
+═══════════════════════════════════════════ -->
+<div id="terms-modal" class="modal-overlay" onclick="closeModalOutside(event,'terms-modal')">
+  <div class="modal-box glass border border-slate-700/60 w-full max-w-2xl rounded-2xl">
+    <div class="sticky top-0 glass border-b border-slate-700/60 px-6 py-4 flex items-center justify-between">
+      <h2 class="font-bold text-white text-base">Terms of Service</h2>
+      <button onclick="closeModal('terms-modal')" class="w-8 h-8 rounded-lg border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-600 transition-all">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="p-6 space-y-5 text-sm text-slate-400 leading-7">
+      <p class="text-xs text-slate-500 font-medium">Last updated: May 2025 · Effective immediately upon use</p>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">1. Acceptance of Terms</h3>
+        <p>By accessing and using the NetSymptom web application at netsymptom.io ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Service. These Terms constitute a legally binding agreement between you and NetSymptom.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">2. Nature of the Service — Probabilistic Educational Diagnostics</h3>
+        <p>NetSymptom provides probabilistic, algorithmically generated network diagnostic assessments for educational and informational purposes only. The diagnostic outputs generated by this application represent statistically weighted probability estimates based on generalized networking research and common failure patterns. They are not:</p>
+        <ul class="mt-2 ml-4 space-y-1">
+          <li>— Official network audits or technical certifications</li>
+          <li>— Guarantees of accuracy for your specific network configuration</li>
+          <li>— Replacements for professional ISP technical support</li>
+          <li>— Binding assessments that can be used in contractual disputes with internet service providers</li>
+        </ul>
+        <p class="mt-2">NetSymptom results are starting points for your own investigation and troubleshooting, not definitive technical verdicts. Your actual network configuration, hardware, ISP infrastructure, and local conditions may differ from the generalized patterns our diagnostic matrix is trained on.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">3. Disclaimer of Warranties</h3>
+        <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, COMPLETENESS, OR NON-INFRINGEMENT. NetSymptom does not warrant that the Service will be error-free, uninterrupted, or that diagnostic results will accurately reflect your specific network environment.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">4. Limitation of Liability</h3>
+        <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, NetSymptom and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or reliance on the Service, including but not limited to: decisions made based on diagnostic results, costs incurred purchasing hardware or software based on recommendations, or outcomes of contacting your ISP based on our analysis.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">5. Permitted Use</h3>
+        <p>You are granted a personal, non-exclusive, non-transferable, revocable license to use the Service for your own personal, non-commercial diagnostic purposes. You may not: scrape, copy, or reproduce the diagnostic engine for commercial use; attempt to reverse-engineer the weighting algorithm for competitive purposes; use automated systems to generate bulk diagnostic requests; or misrepresent NetSymptom results as official technical assessments.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">6. Affiliate Relationships and Advertising</h3>
+        <p>NetSymptom may display affiliate product recommendations matched to your diagnosed bottleneck. These recommendations are generated algorithmically and are not paid placements — the product shown is determined solely by diagnostic output. However, purchase links may contain affiliate tracking parameters. NetSymptom may earn a commission if you purchase through these links. This does not affect our diagnostic results or recommendations. All advertising displayed through third-party ad networks (Google AdSense) is subject to those networks' terms and policies.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">7. Intellectual Property</h3>
+        <p>The NetSymptom application, including its diagnostic algorithm, user interface design, educational content, and branding, is the intellectual property of NetSymptom and is protected by applicable copyright laws. The underlying open-source libraries (Tailwind CSS) are used under their respective open-source licenses.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">8. Governing Law</h3>
+        <p>These Terms shall be governed by the laws of the jurisdiction in which NetSymptom is registered, without regard to conflict of law provisions. Disputes arising under these Terms shall be resolved through good-faith negotiation or, if necessary, binding arbitration.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-slate-200 mb-2">9. Modifications</h3>
+        <p>We reserve the right to modify these Terms at any time. Continued use of the Service after modifications constitutes acceptance. We will indicate the effective date of the most recent revision at the top of this document.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT ENGINE
+═══════════════════════════════════════════ -->
+<script>
+// ── Diagnostic Matrix ──────────────────────────────────────────────────────
+var MATRIX = {
+  'video-buffering': {
+    label: 'YouTube / Netflix Buffering',
+    paradox: "Your raw download speed is fast enough to stream 4K ten times over — yet your video buffers. This is the speed-test paradox in its purest form. Streaming platforms are reached through specific network paths called peering links. Your ISP's link to Netflix or YouTube's CDN may be operating at full capacity, creating a bottleneck that is completely invisible to a speed test (which hits a nearby, uncongested ISP server). Meanwhile, your Wi-Fi may be introducing tiny bursts of packet loss that force the video player to request data retransmissions — adding 200-400ms delays every few seconds.",
+    nodes: ['device','router','isp','content'],
+    results: function(d, u, p) {
+      return [
+        {
+          issue: 'ISP Peering Bottleneck',
+          weight: d > 25 ? 88 : 65,
+          color: 'rose',
+          explanation: 'The link between your ISP and the streaming platform\'s CDN is congested, throttled, or under-provisioned. Your raw bandwidth is fine; the path to content is not.',
+          fixes: [
+            'Test streaming speed with a VPN active — if it improves significantly, ISP throttling or peering congestion is confirmed',
+            'Report peering issues to your ISP and request a different routing path',
+            'Try streaming at non-peak hours (before 7pm) to confirm time-of-day congestion',
+            'Consider switching DNS to Cloudflare (1.1.1.1) which can route to closer CDN nodes'
+          ],
+          walkthrough: {
+            title: 'How to Test for ISP Throttling in 5 Steps',
+            steps: [
+              'Download a free, reputable VPN app (ProtonVPN free tier works for this test)',
+              'Without VPN: open Netflix or YouTube and note how long buffering takes. Record quality level.',
+              'Enable VPN connected to a nearby server in your country',
+              'Reload the streaming page and compare quality and buffering behaviour',
+              'If streaming improves substantially with VPN, contact your ISP and reference the difference as evidence of throttling'
+            ]
+          },
+          affiliate: {
+            type: 'vpn',
+            title: 'Premium VPN to Bypass ISP Throttling',
+            desc: 'A high-performance encrypted VPN routes your streaming traffic around ISP throttling and peering congestion. Look for providers with 10Gbps+ server infrastructure and streaming-optimized servers.',
+            url: 'https://www.amazon.com/s?k=wifi+6+mesh+router+system&tag=netsymptom-20'
+          }
+        },
+        {
+          issue: 'Local Wi-Fi Saturation',
+          weight: d >= 100 ? 82 : 55,
+          color: d >= 100 ? 'rose' : 'amber',
+          explanation: 'Your home wireless network may be experiencing channel congestion, interference from neighbouring networks, or packet loss caused by signal degradation. Even brief packet loss events cause your video player\'s adaptive algorithms to drop quality or pause to buffer.',
+          fixes: [
+            'Switch to 5GHz Wi-Fi band — far less congested than 2.4GHz',
+            'Use an Ethernet cable for your streaming device to eliminate Wi-Fi entirely',
+            'Reposition your router to reduce physical obstructions between it and your device',
+            'Use a Wi-Fi analyser app to find less congested channels and set your router manually'
+          ],
+          walkthrough: {
+            title: 'Switch to 5GHz Wi-Fi in 3 Steps',
+            steps: [
+              'Open your device\'s Wi-Fi settings and look for networks ending in "_5G" or "5GHz" — this is your router\'s faster band',
+              'If you only see one network name, log into your router admin panel and enable "Band Steering" or split the networks into separate SSIDs',
+              'Connect to the 5GHz network and re-test streaming quality — most users see immediate improvement in packet consistency'
+            ]
+          },
+          affiliate: {
+            type: 'mesh',
+            title: 'Wi-Fi 6 Mesh System for Whole-Home Coverage',
+            desc: 'A modern Wi-Fi 6 mesh router system eliminates dead zones, supports OFDMA for multiple simultaneous streams, and dramatically reduces the interference-related packet loss that causes buffering.',
+            url: 'https://www.amazon.com/s?k=wifi+6+mesh+router+system&tag=netsymptom-20'
+          }
+        },
+        {
+          issue: 'DNS Latency Overhead',
+          weight: p > 30 ? 45 : 30,
+          color: 'emerald',
+          explanation: 'Before your device can connect to any streaming server, it must resolve dozens of domain names — the streaming API, the CDN, the analytics endpoint, the subtitle service. Slow DNS adds 100-200ms to every one of these lookups, delaying the initial connection and causing the first buffer to fill slowly.',
+          fixes: [
+            'Change DNS to Cloudflare 1.1.1.1 (primary) and 1.0.0.1 (secondary) in your router',
+            'Alternatively use Google 8.8.8.8 / 8.8.4.4 or Quad9 9.9.9.9 / 149.112.112.112',
+            'Flush your current DNS cache: Windows — ipconfig /flushdns | Mac — sudo dscacheutil -flushcache',
+            'Enable DNS-over-HTTPS in Chrome (Settings → Privacy → Security → Use secure DNS)'
+          ],
+          walkthrough: {
+            title: 'Change DNS to Cloudflare in 4 Steps',
+            steps: [
+              'Log into your router admin panel (typically 192.168.1.1 or 192.168.0.1)',
+              'Navigate to Internet Settings, WAN Settings, or DNS Configuration',
+              'Set Primary DNS to 1.1.1.1 and Secondary DNS to 1.0.0.1',
+              'Save settings — change takes effect immediately for all devices on your network without any restarts'
+            ]
+          },
+          affiliate: null
+        }
+      ];
+    }
+  },
+
+  'gaming-lag': {
+    label: 'Online Gaming Lag & Rubberbanding',
+    paradox: "Gaming is brutally intolerant of network imperfection in ways that streaming is not. A streaming video can pause and pre-buffer. A game packet that arrives 200ms late cannot be re-used — the game state has already moved on, causing your character to teleport backward (rubberbanding). Most gaming lag on fast connections is caused by bufferbloat: your router's buffers fill during any background download or upload, causing massive latency spikes that are invisible to speed tests but catastrophic for real-time gaming.",
+    nodes: ['device','router','isp','server'],
+    results: function(d, u, p) {
+      return [
+        {
+          issue: 'Bufferbloat Queue Failure',
+          weight: (p > 50 || u < 5) ? 92 : 75,
+          color: 'rose',
+          explanation: 'Your router\'s packet buffers are overflowing under load, causing in-game ping to spike from your baseline to 200-500ms whenever any background network activity occurs. Bufferbloat is completely invisible to standard speed tests because they fill the buffer deliberately.',
+          fixes: [
+            'Test for bufferbloat at waveform.com/tools/bufferbloat — a D or F grade confirms this is your problem',
+            'Enable SQM (Smart Queue Management) in your router firmware if supported',
+            'Upgrade to a router running OpenWRT or DD-WRT with FQ-CoDel algorithm support',
+            'As a temporary fix: limit background downloads and set gaming PC to highest QoS priority in router settings'
+          ],
+          walkthrough: {
+            title: 'Enable QoS for Gaming Priority in 5 Steps',
+            steps: [
+              'Log into your router admin panel (192.168.1.1 or your default gateway IP)',
+              'Navigate to Advanced → QoS or Traffic Management (label varies by manufacturer)',
+              'Find your gaming device in the connected devices list — note its IP or MAC address',
+              'Set your gaming device to "Highest" priority tier',
+              'Optionally limit background devices (smart TVs, phones) to "Low" priority. Test in-game ping immediately after saving.'
+            ]
+          },
+          affiliate: {
+            type: 'router',
+            title: 'Gaming Router with SQM / QoS Support',
+            desc: 'A dedicated gaming router with built-in QoS, SQM, and bufferbloat control keeps your gaming ping stable even when others on your network are downloading or streaming simultaneously.',
+            url: 'https://www.amazon.com/s?k=gaming+router+qos+bufferbloat&tag=netsymptom-20'
+          }
+        },
+        {
+          issue: 'Wi-Fi Packet Interruption',
+          weight: 78,
+          color: 'rose',
+          explanation: 'Wireless connections experience microbursts of packet loss — invisible in a speed test\'s smooth throughput measurement, but catastrophic for real-time gaming. Even 1% packet loss on your Wi-Fi causes visible lag, dropped actions, and rubberbanding in most online games.',
+          fixes: [
+            'Use a wired Ethernet cable from your PC to the router — this single change eliminates Wi-Fi packet loss entirely',
+            'If Ethernet is not possible: switch to 5GHz Wi-Fi and position router within direct line of sight',
+            'Use a powerline or MoCA adapter to run Ethernet over your home\'s electrical or coaxial wiring',
+            'Upgrade to a Wi-Fi 6 router and adapter for dramatically improved packet consistency'
+          ],
+          walkthrough: {
+            title: 'Run Ethernet Without Drilling Walls',
+            steps: [
+              'Purchase a powerline adapter kit (TP-Link Powerline TL-PA7010 is a reliable entry-level option)',
+              'Plug one adapter into a power socket near your router and connect it via Ethernet to the router',
+              'Plug the second adapter into a socket near your gaming PC and connect it to your PC\'s Ethernet port',
+              'The two adapters pair automatically — your gaming PC now has a wired connection through your home\'s electrical wiring',
+              'Run a ping stability test: open Command Prompt and run ping -t 8.8.8.8 for 2 minutes. Zero packet loss confirms success.'
+            ]
+          },
+          affiliate: {
+            type: 'powerline',
+            title: 'Powerline Ethernet Adapter for Lag-Free Gaming',
+            desc: 'A powerline adapter pair delivers the stability of wired Ethernet through your home\'s existing electrical wiring — no drilling, no cable runs. Eliminates Wi-Fi packet loss completely.',
+            url: 'https://www.amazon.com/s?k=powerline+ethernet+adapter+kit+gaming&tag=netsymptom-20'
+          }
+        },
+        {
+          issue: 'Server Distance Deficit',
+          weight: p > 100 ? 60 : 40,
+          color: 'amber',
+          explanation: 'Physics imposes a hard floor on latency: data travelling 5,000 km cannot arrive in under ~25ms no matter how good your connection is. If your in-game ping is high even with a good local connection, you may be routing to distant servers — or your ISP\'s routing adds geographic hops.',
+          fixes: [
+            'Manually select the closest game server region in your game\'s settings',
+            'Run traceroute to the game server IP to visualise routing and identify geographic detours',
+            'Test with a gaming-optimized VPN to check if your ISP is adding unnecessary routing hops',
+            'Contact your ISP and request BGP route optimization for gaming traffic (larger ISPs offer this)'
+          ],
+          walkthrough: {
+            title: 'Find and Fix Bad Game Server Routing',
+            steps: [
+              'In your game settings, look for Region, Server Location, or Data Center selection',
+              'Select the region closest to your physical location',
+              'If ping remains high: open Command Prompt and run tracert [game-server-ip] to see each network hop',
+              'Look for hops with >150ms latency — these indicate geographic routing problems',
+              'Report the traceroute output to your ISP\'s technical support and request route optimization'
+            ]
+          },
+          affiliate: null
+        }
+      ];
+    }
+  },
+
+  'voip-freeze': {
+    label: 'Zoom / Teams Call Freezing',
+    paradox: "Video calls require simultaneous, consistent upload AND download — something speed tests never measure simultaneously. Your 50 Mbps download might be working perfectly while your Wi-Fi's upload path to Zoom's servers is experiencing 3% packet loss from interference. Zoom cannot retransmit lost audio/video packets — it must simply skip them, causing the freezing and audio dropout you experience. Simultaneously, background applications may be consuming upload bandwidth at the exact moments your call needs it most.",
+    nodes: ['device','router','isp','voip'],
+    results: function(d, u, p) {
+      return [
+        {
+          issue: 'Local Wi-Fi Packet Loss',
+          weight: 85,
+          color: 'rose',
+          explanation: 'Wireless packet loss — even at 0.5% — devastates VoIP and video call quality. Unlike streaming video, call protocols cannot buffer ahead. Lost packets mean frozen video frames and missing audio words with no way to recover them.',
+          fixes: [
+            'Connect your laptop or PC to the router via Ethernet during important calls',
+            'Switch to 5GHz Wi-Fi and move closer to the router to reduce interference-related loss',
+            'Close all other Wi-Fi connected devices and background applications during calls',
+            'Disable your microwave and other 2.4GHz interference sources during critical calls'
+          ],
+          walkthrough: {
+            title: 'Ethernet for Calls When You Have No Ethernet Port',
+            steps: [
+              'Most modern laptops lack Ethernet ports — purchase a USB-C or USB-A to Ethernet adapter (under $15)',
+              'Connect the adapter to your laptop and run an Ethernet cable to your router',
+              'Windows will automatically prioritise the wired connection over Wi-Fi',
+              'On Mac: System Settings → Network → drag Ethernet above Wi-Fi in the service order',
+              'Rejoin your Zoom or Teams call — packet loss drops to near-zero and call quality improves dramatically'
+            ]
+          },
+          affiliate: {
+            type: 'adapter',
+            title: 'USB-C to Ethernet Adapter for Stable Video Calls',
+            desc: 'A USB-C Gigabit Ethernet adapter converts any laptop port to a full-speed wired connection. Eliminates Wi-Fi packet loss — the most common cause of call freezing — in seconds.',
+            url: 'https://www.amazon.com/s?k=usb+c+ethernet+adapter+gigabit&tag=netsymptom-20'
+          }
+        },
+        {
+          issue: 'ISP Gateway Congestion',
+          weight: p > 40 ? 70 : 60,
+          color: 'amber',
+          explanation: 'During peak business hours (9am-12pm, 1pm-3pm), your ISP\'s upstream links to video conferencing infrastructure may become congested. Zoom, Microsoft Teams, and Google Meet all route through specific peering points that can bottleneck independently of your raw access speed.',
+          fixes: [
+            'Schedule non-critical calls for early morning or late afternoon to avoid peak congestion',
+            'Enable Zoom\'s "Low bandwidth mode" as a stopgap during congested periods',
+            'Switch from video to audio-only if the call is freezing — reduces bandwidth by 90%',
+            'Test call quality through a VPN during bad sessions to determine if ISP routing is the cause'
+          ],
+          walkthrough: {
+            title: 'Enable Zoom Low-Bandwidth Mode',
+            steps: [
+              'Open Zoom → click your profile picture → Settings',
+              'Navigate to Video tab → uncheck "HD" and "Original ratio"',
+              'Navigate to General tab → enable "Use proxy server for Zoom data"',
+              'During active call: click the ↑ arrow next to "Stop Video" → select "Video Settings" → reduce resolution to 360p',
+              'These changes reduce upload bandwidth requirements by ~60% while maintaining usable call quality'
+            ]
+          },
+          affiliate: null
+        },
+        {
+          issue: 'Background App Bandwidth Hogging',
+          weight: 45,
+          color: 'emerald',
+          explanation: 'Cloud backup services (iCloud, OneDrive, Dropbox, Google Drive), Windows Update downloads, and browser background processes can saturate your upload connection precisely when your call needs it. A single cloud backup upload can consume your entire upload bandwidth.',
+          fixes: [
+            'Pause OneDrive, Dropbox, and iCloud sync before calls (right-click taskbar icon → Pause)',
+            'Disable Windows Update\'s automatic download during calls: Settings → Windows Update → Pause Updates',
+            'Close all unnecessary browser tabs — each open tab makes background network requests',
+            'Set your call application to "High Priority" in Task Manager → Details → Right-click → Set Priority'
+          ],
+          walkthrough: {
+            title: 'Pause All Cloud Sync Before Important Calls',
+            steps: [
+              'Right-click OneDrive cloud icon in system tray → Pause syncing → 2 hours',
+              'Right-click Dropbox icon in system tray → Pause syncing',
+              'Right-click Google Drive icon → Pause syncing',
+              'On Mac: same process through menu bar icons for each service',
+              'Re-enable all services after your call completes — they will resume automatically'
+            ]
+          },
+          affiliate: null
+        }
+      ];
+    }
+  },
+
+  'slow-load': {
+    label: 'Slow Page Loading Start',
+    paradox: "Your connection is fast but pages are slow to start — this is almost always a DNS problem. Before a single byte of a webpage downloads, your browser must look up the IP address for every domain on that page. If your ISP's DNS resolver takes 120ms to respond, and a modern webpage has 15 different domain lookups, you're adding 1.8 seconds of pure DNS wait time before any visible content appears. Your download is fast; the addressing system is slow.",
+    nodes: ['device','dns','router','web'],
+    results: function(d, u, p) {
+      return [
+        {
+          issue: 'Slow ISP DNS Resolution',
+          weight: d > 50 ? 96 : 80,
+          color: 'rose',
+          explanation: 'ISP-provided DNS servers are consistently among the slowest available — often 80-200ms response times versus 2-15ms for Cloudflare or Google\'s resolvers. Since DNS must complete before any content loads, slow DNS directly adds seconds to every page\'s perceived load time even on gigabit connections.',
+          fixes: [
+            'Change router DNS to Cloudflare: 1.1.1.1 (primary) and 1.0.0.1 (secondary)',
+            'Or use Google: 8.8.8.8 / 8.8.4.4 · Quad9 (with malware blocking): 9.9.9.9 / 149.112.112.112',
+            'Enable DNS-over-HTTPS (DoH) in Chrome: Settings → Privacy → Security → Use secure DNS → With Cloudflare',
+            'Flush your existing DNS cache after changing: Windows — ipconfig /flushdns in Command Prompt'
+          ],
+          walkthrough: {
+            title: 'Change Your Router DNS to Cloudflare',
+            steps: [
+              'Open a browser and navigate to 192.168.1.1 (or your router\'s default gateway IP)',
+              'Log in with admin credentials from the label on your router',
+              'Find the DNS or Internet Settings section',
+              'Set Primary DNS Server to: 1.1.1.1',
+              'Set Secondary DNS Server to: 1.0.0.1 · Save and restart your router. Open a new browser tab and notice the difference in page start time.'
+            ]
+          },
+          affiliate: null
+        },
+        {
+          issue: 'Browser Extension Conflict',
+          weight: 55,
+          color: 'amber',
+          explanation: 'Security, privacy, and ad-blocking extensions intercept every network request your browser makes. Some extensions add 100-400ms of processing overhead per request, multiplied across the dozens of resources a typical page loads. The result is a fast connection that feels slow because software is bottlenecking it in the browser.',
+          fixes: [
+            'Open an Incognito/Private window (all extensions disabled by default) and compare page load speed',
+            'If Incognito is faster, a specific extension is causing the delay',
+            'Go to Chrome Extensions → disable extensions one-by-one, refreshing each time to identify the culprit',
+            'Replace heavy VPN or firewall extensions with OS-level or router-level solutions that don\'t intercept browser requests'
+          ],
+          walkthrough: {
+            title: 'Identify Which Extension is Slowing You Down',
+            steps: [
+              'Open Chrome → press F12 to open Developer Tools → click the Network tab',
+              'Reload a slow page and look at the waterfall — long dark-grey bars before requests indicate extension interception',
+              'Open chrome://extensions/ and disable all extensions simultaneously',
+              'Reload the same page and compare load time in the Network tab',
+              'Re-enable extensions one by one, reloading after each, until the slow behaviour returns — that extension is your bottleneck'
+            ]
+          },
+          affiliate: null
+        },
+        {
+          issue: 'Router Connection Cache Full',
+          weight: 40,
+          color: 'emerald',
+          explanation: 'Consumer routers maintain a connection tracking table. When this table fills (common on routers with many connected smart home devices), the router must evict old entries to process new ones, causing delays in establishing new connections — experienced as slow page starts.',
+          fixes: [
+            'Restart your router to clear the connection tracking cache (30-second power cycle)',
+            'Update router firmware — most updates improve connection table management',
+            'Reduce the number of constantly-connected IoT devices if router resources are limited',
+            'Upgrade to a modern router with a larger NAT table if this problem recurs regularly'
+          ],
+          walkthrough: {
+            title: 'Properly Restart Your Router',
+            steps: [
+              'Unplug the power cable from your router (not the wall — the router itself)',
+              'Wait a full 30 seconds — this allows capacitors to discharge and volatile memory to clear',
+              'Also power cycle your modem if you have a separate one: unplug, wait 30 seconds',
+              'Plug in the modem first and wait until all lights are stable (typically 60 seconds)',
+              'Plug in the router and wait for Wi-Fi lights to stabilize. Test page load speed immediately.'
+            ]
+          },
+          affiliate: null
+        }
+      ];
+    }
+  },
+
+  'stream-stutter': {
+    label: 'Live Stream Stuttering / Disconnects',
+    paradox: "Live streaming is uniquely demanding because it requires consistent, stable upload bandwidth — the opposite of what most broadband connections are optimised for. Providers sell download speed prominently; upload is an afterthought. Yet streaming to Twitch, YouTube Live, or any platform requires your connection to maintain a steady upload at your encoder bitrate for hours at a time, with zero tolerance for drops. Wi-Fi upload instability and ISP upload throttling are the dominant causes.",
+    nodes: ['device','router','isp','platform'],
+    results: function(d, u, p) {
+      return [
+        {
+          issue: 'ISP Upload Throttling',
+          weight: u < 10 ? 88 : 70,
+          color: 'rose',
+          explanation: 'ISPs frequently cap or throttle upload bandwidth to streaming platforms, treating high sustained upload as P2P behaviour and reducing its priority. This is especially common on cable internet plans where upload capacity is shared among many subscribers.',
+          fixes: [
+            'Run a streaming throttle test: stream for 30 minutes, then stream through a VPN for 30 minutes. Compare dropped frames in OBS/Streamlabs.',
+            'Contact your ISP and explicitly ask about upload bandwidth guarantees and throttling policies for streaming services',
+            'Upgrade to a plan with guaranteed higher upload speeds — many ISPs now offer 1Gbps symmetrical fiber',
+            'Use a VPN during streams if throttling is confirmed — this routes upload around ISP inspection'
+          ],
+          walkthrough: {
+            title: 'Test for Upload Throttling with OBS',
+            steps: [
+              'In OBS Studio → Tools → Stats — note your "Dropped Frames (Network)" percentage over 10 minutes',
+              'Install a reputable VPN and connect to a server in your country',
+              'Stream for another 10 minutes with VPN active — compare dropped frames percentage',
+              'If dropped frames decrease substantially with VPN (e.g., from 8% to 0.5%), ISP upload throttling is confirmed',
+              'Document both sessions and contact your ISP\'s technical escalation team with the data'
+            ]
+          },
+          affiliate: {
+            type: 'vpn',
+            title: 'Streaming VPN to Bypass Upload Throttling',
+            desc: 'A premium VPN with dedicated streaming and upload-optimised servers can bypass ISP throttling, restoring your full upload bandwidth to Twitch, YouTube Live, and other platforms.',
+            url: 'https://www.amazon.com/s?k=vpn+router+streaming&tag=netsymptom-20'
+          }
+        },
+        {
+          issue: 'Encoder CPU / Network Queue Drop',
+          weight: 65,
+          color: 'amber',
+          explanation: 'Your streaming encoder (OBS Studio, Streamlabs) encodes video in real time. If your CPU cannot keep up with encoding, or if the outbound network queue fills faster than packets can be sent, the encoder drops frames. These drops appear as stuttering or brief freezes for viewers.',
+          fixes: [
+            'In OBS: Tools → Stats — watch "Rendering lag" and "Encoding lag." If either exceed 5%, your CPU is the bottleneck',
+            'Lower your encoding preset from "medium" to "fast" or "veryfast" to reduce CPU load',
+            'Reduce output resolution from 1080p to 720p and bitrate by 20% as a stability buffer',
+            'Enable NVENC (Nvidia) or AMF (AMD) hardware encoding to offload encoding from CPU entirely'
+          ],
+          walkthrough: {
+            title: 'Enable GPU Hardware Encoding in OBS',
+            steps: [
+              'Open OBS Studio → Settings → Output → Output Mode: Advanced',
+              'Under Encoder: select NVIDIA NVENC H.264 (if you have an Nvidia GPU) or AMD HW H.264 (AMD GPU)',
+              'Intel Quick Sync H.264 is available on most Intel CPUs with integrated graphics',
+              'Set Rate Control to CBR, Bitrate to 4500-6000 Kbps for 1080p/60fps',
+              'Apply settings and start a test stream — CPU usage should drop dramatically and frames should stabilize'
+            ]
+          },
+          affiliate: null
+        },
+        {
+          issue: 'Wi-Fi Upload Instability',
+          weight: 55,
+          color: 'emerald',
+          explanation: 'Wi-Fi upload is considerably less stable than Wi-Fi download due to asymmetric CSMA/CA channel access. During upload bursts, other devices compete for the same channel access window, causing microbursts of packet queuing that interrupt your stream\'s consistent data flow.',
+          fixes: [
+            'Stream exclusively via Ethernet — the single most impactful change for streaming stability',
+            'If Wi-Fi is required: use 5GHz exclusively and position streaming PC within 5 metres of router',
+            'Set your streaming PC\'s Wi-Fi to highest QoS priority in router settings',
+            'Dedicate a separate 5GHz network band exclusively to your streaming PC and disable other devices from that band'
+          ],
+          walkthrough: {
+            title: 'Optimise Wi-Fi Upload for Streaming',
+            steps: [
+              'Access your router admin panel and enable Band Steering or create a dedicated 5GHz SSID',
+              'Name it something like "StreamPC-5G" and connect only your streaming computer to it',
+              'In QoS settings, assign this SSID or your streaming PC\'s MAC address to highest bandwidth priority',
+              'In OBS Settings → Advanced → Network: enable "Dynamically change bitrate to manage congestion"',
+              'Set a minimum bitrate of 2500 Kbps — OBS will automatically reduce quality during instability rather than dropping frames'
+            ]
+          },
+          affiliate: {
+            type: 'mesh',
+            title: 'Wi-Fi 6 Mesh System for Streaming Stability',
+            desc: 'A Wi-Fi 6 mesh system with dedicated backhaul channels provides stable, high-throughput upload paths — eliminating the channel contention that causes stream drops on older Wi-Fi hardware.',
+            url: 'https://www.amazon.com/s?k=wifi+6+mesh+router+streaming&tag=netsymptom-20'
+          }
+        }
+      ];
+    }
+  }
+};
+
+// ── Affiliate Icon SVGs ────────────────────────────────────────────────────
+var AFFILIATE_ICONS = {
+  vpn: '<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="6" width="18" height="12" rx="2.5" stroke="#818cf8" stroke-width="1.5"/><path d="M7 6V5a4 4 0 018 0v1" stroke="#6366f1" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="12" r="2" fill="#818cf8"/></svg>',
+  mesh: '<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="3" stroke="#818cf8" stroke-width="1.5"/><path d="M4 4l3.5 3.5M18 4l-3.5 3.5M4 18l3.5-3.5M18 18l-3.5-3.5" stroke="#6366f1" stroke-width="1.4" stroke-linecap="round"/></svg>',
+  router: '<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="12" width="16" height="6" rx="2" stroke="#818cf8" stroke-width="1.5"/><path d="M7 12V9M11 12V7M15 12V9" stroke="#6366f1" stroke-width="1.4" stroke-linecap="round"/></svg>',
+  adapter: '<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="7" y="9" width="8" height="8" rx="1.5" stroke="#818cf8" stroke-width="1.5"/><path d="M11 9V5M9 5h4" stroke="#6366f1" stroke-width="1.4" stroke-linecap="round"/><path d="M11 17v2" stroke="#818cf8" stroke-width="1.4" stroke-linecap="round"/></svg>',
+  powerline: '<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3v7l-3 3h6l-3-3" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 13v6" stroke="#6366f1" stroke-width="1.5" stroke-linecap="round"/></svg>'
+};
+
+// ── Network path node templates ────────────────────────────────────────────
+var NODE_DEFS = {
+  device:   { label: 'Your Device',      icon: '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M6 16h6M9 13v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>' },
+  router:   { label: 'Wi-Fi Router',     icon: '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="10" width="12" height="5" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 10V7M9 10V5M12.5 10V7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>' },
+  isp:      { label: 'ISP Gateway',      icon: '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 9h13M9 2.5c-2 1.5-3 4-3 6.5s1 5 3 6.5M9 2.5c2 1.5 3 4 3 6.5s-1 5-3 6.5" stroke="currentColor" stroke-width="1.2"/></svg>' },
+  content:  { label: 'Content Server',   icon: '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="4" width="12" height="4" rx="1.2" stroke="currentColor" stroke-width="1.4"/><rect x="3" y="10" width="12" height="4" rx="1.2" stroke="currentColor" stroke-width="1.4"/><circle cx="5.5" cy="6" r="1" fill="currentColor"/><circle cx="5.5" cy="12" r="1" fill="currentColor"/></svg>' },
+  server:   { label: 'Game Server',      icon: '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="4" y="3" width="10" height="4" rx="1.2" stroke="currentColor" stroke-width="1.4"/><rect x="4" y="9" width="10" height="4" rx="1.2" stroke="currentColor" stroke-width="1.4"/><circle cx="13" cy="5" r="1" fill="currentColor"/><circle cx="13" cy="11" r="1" fill="currentColor"/></svg>' },
+  voip:     { label: 'Call Platform',    icon: '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 4h10a1 1 0 011 1v7a1 1 0 01-1 1H9l-3 2v-2H4a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.4"/></svg>' },
+  dns:      { label: 'DNS Resolver',     icon: '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 8h8M5 11h5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>' },
+  web:      { label: 'Web Server',       icon: '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 9h13M9 2.5c-2 1.5-3 4-3 6.5s1 5 3 6.5" stroke="currentColor" stroke-width="1.2"/></svg>' },
+  platform: { label: 'Stream Platform',  icon: '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 13L9 4l6 9H3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>' }
+};
+
+var COLOR_MAP = {
+  rose:    { bar: '#f43f5e', bg: 'bg-rose-500',    text: 'text-rose-400',    ring: 'border-rose-500/40',   label: 'Critical' },
+  amber:   { bar: '#f59e0b', bg: 'bg-amber-500',   text: 'text-amber-400',   ring: 'border-amber-500/40',  label: 'Warning'  },
+  emerald: { bar: '#10b981', bg: 'bg-emerald-500', text: 'text-emerald-400', ring: 'border-emerald-500/40',label: 'Moderate' }
+};
+
+// ── Utility ────────────────────────────────────────────────────────────────
+function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
+
+function syncSlider(fieldId, valId, min, max) {
+  var slider = document.getElementById(fieldId + '-slider');
+  var numInput = document.getElementById(fieldId + '-speed') || document.getElementById(fieldId + '-ms');
+  var label = document.getElementById(valId + '-val');
+  var v = parseInt(slider.value);
+  if (numInput) numInput.value = v;
+  if (label) label.textContent = v;
+  var pct = ((v - min) / (max - min) * 100).toFixed(1) + '%';
+  slider.style.setProperty('--rp', pct);
+  updatePingColor(fieldId, v);
+}
+
+function syncInput(fieldId, valId, min, max) {
+  var numInput = document.getElementById(fieldId + '-speed') || document.getElementById(fieldId + '-ms');
+  var slider = document.getElementById(fieldId + '-slider');
+  var label = document.getElementById(valId + '-val');
+  var v = clamp(parseInt(numInput.value) || min, min, max);
+  if (slider) slider.value = v;
+  if (label) label.textContent = v;
+  var pct = ((v - min) / (max - min) * 100).toFixed(1) + '%';
+  if (slider) slider.style.setProperty('--rp', pct);
+  updatePingColor(fieldId, v);
+}
+
+function updatePingColor(fieldId, v) {
+  if (fieldId !== 'ping') return;
+  var el = document.getElementById('ping-color-label');
+  if (!el) return;
+  if (v < 20) el.className = 'text-sm font-bold text-emerald-400';
+  else if (v < 50) el.className = 'text-sm font-bold text-blue-400';
+  else if (v < 100) el.className = 'text-sm font-bold text-amber-400';
+  else el.className = 'text-sm font-bold text-rose-400';
+}
+
+function markStep1Complete() {
+  var dot = document.getElementById('step-dot-1');
+  var conn = document.getElementById('conn-1');
+  if (dot) { dot.classList.remove('bg-indigo-600','border-indigo-400'); dot.classList.add('bg-emerald-600','border-emerald-400'); dot.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'; }
+  if (conn) conn.style.background = 'linear-gradient(to right, #10b981, #4f46e5)';
+}
+
+// ── Main Diagnostic Engine ─────────────────────────────────────────────────
+function runDiagnostic() {
+  var symptom = document.getElementById('symptom-select').value;
+  if (!symptom) {
+    var err = document.getElementById('form-error');
+    err.classList.remove('hidden');
+    err.classList.add('flex');
+    setTimeout(function() { err.classList.add('hidden'); err.classList.remove('flex'); }, 4000);
+    return;
+  }
+
+  // Button loading state
+  var btn = document.getElementById('analyze-btn');
+  var icon = document.getElementById('btn-icon');
+  var spinner = document.getElementById('btn-spinner');
+  var btnText = document.getElementById('btn-text');
+  btn.disabled = true;
+  icon.classList.add('hidden');
+  spinner.classList.remove('hidden');
+
+  var download = parseFloat(document.getElementById('download-speed').value) || 100;
+  var upload = parseFloat(document.getElementById('upload-speed').value) || 20;
+  var ping = parseFloat(document.getElementById('ping-ms').value) || 30;
+
+  // Cycling scan messages shown over 10 seconds
+  var SCAN_PHASES = [
+    'Mapping network topology...',
+    'Profiling ISP peering routes...',
+    'Measuring bufferbloat exposure...',
+    'Auditing DNS resolver latency...',
+    'Checking Wi-Fi packet integrity...',
+    'Cross-referencing congestion matrix...',
+    'Calculating bottleneck probabilities...',
+    'Scoring connection health...',
+    'Generating repair roadmap...',
+    'Finalising diagnostic report...'
+  ];
+  var phaseIndex = 0;
+  btnText.textContent = SCAN_PHASES[0];
+
+  var phaseInterval = setInterval(function() {
+    phaseIndex++;
+    if (phaseIndex < SCAN_PHASES.length) {
+      // Fade out then in for a slick phase change
+      btnText.style.opacity = '0';
+      btnText.style.transition = 'opacity 0.18s ease';
+      setTimeout(function() {
+        btnText.textContent = SCAN_PHASES[phaseIndex];
+        btnText.style.opacity = '1';
+      }, 190);
+    }
+  }, 1000);
+
+  setTimeout(function() {
+    clearInterval(phaseInterval);
+    try {
+      var entry = MATRIX[symptom];
+      var results = entry.results(download, upload, ping);
+      results.sort(function(a, b) { return b.weight - a.weight; });
+
+      renderResults(results, entry, download, upload, ping);
+
+      // Activate step indicators
+      var dot2 = document.getElementById('step-dot-2');
+      var dot3 = document.getElementById('step-dot-3');
+      var conn2 = document.getElementById('conn-2');
+      if (dot2) { dot2.classList.remove('bg-slate-800','border-slate-700'); dot2.classList.add('bg-emerald-600','border-emerald-400'); dot2.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'; }
+      if (dot3) { dot3.classList.remove('bg-slate-800','border-slate-700','text-slate-400'); dot3.classList.add('bg-indigo-600','border-indigo-400','text-white'); }
+      if (conn2) conn2.style.background = 'linear-gradient(to right, #10b981, #4f46e5)';
+    } catch(e) { console.error(e); }
+
+    btn.disabled = false;
+    icon.classList.remove('hidden');
+    spinner.classList.add('hidden');
+    btnText.style.opacity = '1';
+    btnText.textContent = 'Execute Diagnostic Analysis';
+  }, 10000);
+}
+
+function renderResults(results, entry, download, upload, ping) {
+  // Health score
+  var topWeight = results[0].weight;
+  var score = Math.round(100 - (topWeight * 0.55) - (results[1] ? results[1].weight * 0.2 : 0) - (results[2] ? results[2].weight * 0.1 : 0));
+  score = clamp(score, 18, 92);
+  var ring = document.getElementById('score-ring');
+  var numEl = document.getElementById('score-number');
+  var labelEl = document.getElementById('score-label');
+  var badge = document.getElementById('results-badge');
+  var circumference = 364.4;
+  var scoreColor, scoreLabel, ringColor;
+
+  if (score >= 70) { scoreColor='text-emerald-400'; scoreLabel='Good Connection'; ringColor='#10b981'; }
+  else if (score >= 45) { scoreColor='text-amber-400'; scoreLabel='Degraded Performance'; ringColor='#f59e0b'; }
+  else { scoreColor='text-rose-400'; scoreLabel='Significant Issues Detected'; ringColor='#f43f5e'; }
+
+  if (ring) {
+    ring.style.stroke = ringColor;
+    var offset = circumference - (score / 100) * circumference;
+    setTimeout(function() { ring.style.strokeDashoffset = offset; }, 100);
+  }
+  if (numEl) { numEl.className = 'text-4xl font-extrabold ' + scoreColor; numEl.textContent = score; }
+  if (labelEl) { labelEl.textContent = scoreLabel; labelEl.className = 'text-sm mt-2 font-medium ' + scoreColor; }
+  if (badge) { badge.textContent = entry.label; }
+
+  // Probability bars
+  var barsContainer = document.getElementById('bars-container');
+  if (barsContainer) {
+    barsContainer.innerHTML = '';
+    results.forEach(function(r, i) {
+      var c = COLOR_MAP[r.color] || COLOR_MAP.amber;
+      var bar = document.createElement('div');
+      bar.className = 'space-y-1.5';
+      bar.innerHTML =
+        '<div class="flex items-center justify-between text-xs mb-1">' +
+          '<span class="font-semibold text-slate-200 flex items-center gap-1.5">' +
+            '<span class="w-2 h-2 rounded-full inline-block ' + c.bg + '"></span>' +
+            r.issue +
+          '</span>' +
+          '<span class="font-bold ' + c.text + '">' + r.weight + '%</span>' +
+        '</div>' +
+        '<div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">' +
+          '<div class="bar-inner h-full ' + c.bg + '" style="--tw:' + r.weight + '%;width:0"></div>' +
+        '</div>' +
+        '<p class="text-xs text-slate-500 leading-5">' + r.explanation + '</p>';
+      barsContainer.appendChild(bar);
+
+      setTimeout(function(el) {
+        return function() {
+          var inner = el.querySelector('.bar-inner');
+          if (inner) inner.classList.add('animate');
+        };
+      }(bar), 200 + i * 150);
+    });
+  }
+
+  // Network path
+  var pathContainer = document.getElementById('network-path');
+  if (pathContainer) {
+    pathContainer.innerHTML = '';
+    var nodes = entry.nodes || ['device','router','isp','content'];
+    var bottleneck = results[0].issue.toLowerCase();
+    nodes.forEach(function(nid, i) {
+      var def = NODE_DEFS[nid] || NODE_DEFS.content;
+      var isBottleneck = (nid === 'isp' && (bottleneck.includes('isp') || bottleneck.includes('peer'))) ||
+                         (nid === 'router' && (bottleneck.includes('buffer') || bottleneck.includes('wi-fi') || bottleneck.includes('packet'))) ||
+                         (nid === 'dns' && bottleneck.includes('dns'));
+      var nodeColor = isBottleneck ? 'text-rose-400 border-rose-500/60 bg-rose-950/60' : 'text-slate-400 border-slate-700/60 bg-slate-900/60';
+      var glowStyle = isBottleneck ? 'box-shadow:0 0 18px rgba(244,63,94,0.4)' : '';
+      var nodeEl = document.createElement('div');
+      nodeEl.className = 'flex sm:flex-col items-center gap-2 sm:gap-0';
+      nodeEl.innerHTML =
+        '<div class="flex flex-col items-center gap-1">' +
+          '<div class="w-12 h-12 rounded-xl border ' + nodeColor + ' flex items-center justify-center transition-all" style="' + glowStyle + '">' + def.icon + '</div>' +
+          '<span class="text-xs font-medium ' + (isBottleneck ? 'text-rose-400' : 'text-slate-500') + ' mt-1 whitespace-nowrap">' + def.label + '</span>' +
+          (isBottleneck ? '<span class="text-xs bg-rose-500/20 text-rose-400 px-1.5 py-0.5 rounded-full border border-rose-500/30 font-semibold">Bottleneck</span>' : '') +
+        '</div>';
+      pathContainer.appendChild(nodeEl);
+
+      if (i < nodes.length - 1) {
+        var arrow = document.createElement('div');
+        arrow.className = 'text-slate-600 text-lg font-bold mx-1 sm:mx-3 sm:rotate-0 rotate-90 sm:mt-[-12px] mt-0';
+        arrow.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="' + (isBottleneck ? '#f43f5e' : '#475569') + '" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        pathContainer.appendChild(arrow);
+      }
+    });
+  }
+
+  // Paradox translator
+  var paradoxEl = document.getElementById('paradox-text');
+  if (paradoxEl) paradoxEl.textContent = entry.paradox;
+
+  // Fix checklist (top issue's fixes)
+  var fixList = document.getElementById('fix-list');
+  if (fixList) {
+    fixList.innerHTML = '';
+    var allFixes = [];
+    results.forEach(function(r, ri) {
+      r.fixes.forEach(function(f, fi) {
+        allFixes.push({ text: f, color: COLOR_MAP[r.color], delay: (ri * r.fixes.length + fi) * 80 });
+      });
+    });
+    allFixes.slice(0, 8).forEach(function(f, i) {
+      var item = document.createElement('div');
+      item.className = 'fix-item flex items-start gap-3 bg-slate-900/50 border border-slate-700/50 rounded-xl px-4 py-3';
+      item.innerHTML =
+        '<div class="w-5 h-5 rounded-full ' + f.color.bg + '/20 border ' + f.color.ring + ' flex items-center justify-center shrink-0 mt-0.5">' +
+          '<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 5-5" stroke="' + f.color.bar + '" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        '</div>' +
+        '<span class="text-slate-300 text-sm leading-6">' + f.text + '</span>';
+      fixList.appendChild(item);
+      setTimeout(function(el) { return function() { el.classList.add('visible'); }; }(item), 300 + i * 80);
+    });
+  }
+
+  // Walkthroughs accordion
+  var walkthrough = document.getElementById('walkthroughs');
+  if (walkthrough) {
+    walkthrough.innerHTML = '';
+    results.forEach(function(r, i) {
+      if (!r.walkthrough) return;
+      var wt = r.walkthrough;
+      var c = COLOR_MAP[r.color];
+      var acc = document.createElement('div');
+      acc.className = 'glass rounded-xl border border-slate-700/60 overflow-hidden';
+      acc.innerHTML =
+        '<button class="acc-toggle w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-slate-800/30 transition-colors" onclick="toggleAcc(this)">' +
+          '<span class="flex items-center gap-2.5">' +
+            '<span class="w-2 h-2 rounded-full ' + c.bg + ' shrink-0"></span>' +
+            '<span class="text-sm font-semibold text-slate-100">' + wt.title + '</span>' +
+          '</span>' +
+          '<svg class="acc-icon w-4 h-4 ' + c.text + ' shrink-0" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+        '</button>' +
+        '<div class="acc-body">' +
+          '<ol class="px-5 pb-5 pt-3 space-y-2.5 border-t border-slate-700/40">' +
+          wt.steps.map(function(step, si) {
+            return '<li class="flex items-start gap-3 text-sm text-slate-400"><span class="w-5 h-5 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xs font-bold text-slate-300 shrink-0 mt-0.5">' + (si + 1) + '</span><span class="leading-6">' + step + '</span></li>';
+          }).join('') +
+          '</ol>' +
+        '</div>';
+      walkthrough.appendChild(acc);
+    });
+  }
+
+  // Affiliate card
+  var topAffiliate = null;
+  for (var ri = 0; ri < results.length; ri++) {
+    if (results[ri].affiliate) { topAffiliate = results[ri].affiliate; break; }
+  }
+  var affCard = document.getElementById('affiliate-card');
+  if (affCard) {
+    if (topAffiliate) {
+      document.getElementById('affiliate-icon').innerHTML = AFFILIATE_ICONS[topAffiliate.type] || AFFILIATE_ICONS.mesh;
+      document.getElementById('affiliate-title').textContent = topAffiliate.title;
+      document.getElementById('affiliate-desc').textContent = topAffiliate.desc;
+      document.getElementById('affiliate-link').href = topAffiliate.url;
+      affCard.style.display = 'block';
+    } else {
+      affCard.style.display = 'none';
+    }
+  }
+
+  // Show results
+  var wrap = document.getElementById('results-wrap');
+  if (wrap) {
+    wrap.classList.add('show');
+    setTimeout(function() { wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+  }
+}
+
+function resetDiagnostic() {
+  var wrap = document.getElementById('results-wrap');
+  if (wrap) wrap.classList.remove('show');
+  document.getElementById('symptom-select').value = '';
+  var dot2 = document.getElementById('step-dot-2');
+  var dot3 = document.getElementById('step-dot-3');
+  if (dot2) { dot2.className = 'w-9 h-9 rounded-full bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-xs font-bold text-slate-400 transition-all duration-500'; dot2.textContent = '2'; }
+  if (dot3) { dot3.className = 'w-9 h-9 rounded-full bg-slate-800 border-2 border-slate-700 flex items-center justify-center text-xs font-bold text-slate-400 transition-all duration-500'; dot3.textContent = '3'; }
+  document.getElementById('tool-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── Accordion ──────────────────────────────────────────────────────────────
+function toggleAcc(btn) {
+  var body = btn.nextElementSibling;
+  var icon = btn.querySelector('.acc-icon');
+  var isOpen = body.classList.contains('open');
+  // Close siblings in same container
+  var parent = btn.closest('[id]');
+  if (parent) {
+    parent.querySelectorAll('.acc-body.open').forEach(function(b) {
+      b.classList.remove('open');
+      var si = b.previousElementSibling && b.previousElementSibling.querySelector('.acc-icon');
+      if (si) si.classList.remove('open');
+    });
+  }
+  if (!isOpen) {
+    body.classList.add('open');
+    if (icon) icon.classList.add('open');
+  }
+}
+
+// ── Modals ─────────────────────────────────────────────────────────────────
+function openModal(id) {
+  var m = document.getElementById(id);
+  if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+function closeModal(id) {
+  var m = document.getElementById(id);
+  if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+}
+function closeModalOutside(e, id) {
+  if (e.target === document.getElementById(id)) closeModal(id);
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    ['privacy-modal','terms-modal'].forEach(closeModal);
+  }
+});
+
+// ── Feedback form ──────────────────────────────────────────────────────────
+function submitFeedback(e) {
+  e.preventDefault();
+  var thanks = document.getElementById('feedback-thanks');
+  if (thanks) { thanks.classList.remove('hidden'); setTimeout(function() { thanks.classList.add('hidden'); }, 5000); }
+}
+
+// ── Intersection observer for fade-up elements ─────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('article, .glass, section > div').forEach(function(el) {
+    if (!el.style.opacity) {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    }
+  });
+});
+</script>
+</body>
+</html>
