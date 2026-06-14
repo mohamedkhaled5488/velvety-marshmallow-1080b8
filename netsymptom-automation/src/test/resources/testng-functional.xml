@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="NetSymptom Functional Suite" verbose="1" thread-count="1">
+  <test name="Functional and Accessibility Tests">
+    <classes>
+      <class name="com.netsymptom.runners.FunctionalTestRunner"/>
+    </classes>
+  </test>
+</suite>
