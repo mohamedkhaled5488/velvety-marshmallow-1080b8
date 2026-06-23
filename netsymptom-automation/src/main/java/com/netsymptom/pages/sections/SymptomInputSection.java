@@ -134,7 +134,12 @@ public class SymptomInputSection {
     // ── Analyze Button ───────────────────────────────────────────────────────
 
     public void clickAnalyze() {
-        WaitUtils.waitForClickable(analyzeBtn).click();
+        WebElement btn = WaitUtils.scrollAndWait(analyzeBtn);
+        try {
+            btn.click();
+        } catch (org.openqa.selenium.ElementClickInterceptedException e) {
+            JavaScriptUtils.click(btn);
+        }
         log.info("Clicked 'Execute Diagnostic Analysis'");
     }
 

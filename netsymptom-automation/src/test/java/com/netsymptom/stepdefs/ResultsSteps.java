@@ -15,6 +15,7 @@ public class ResultsSteps {
 
     @Then("the results panel should be visible")
     public void theResultsPanelShouldBeVisible() {
+        page.results.waitForResults();
         Assert.assertTrue(page.results.isVisible(), "Results panel is not visible");
     }
 
